@@ -1,0 +1,10 @@
+c:\Users\kvshe\tutorial\target\debug\deps\sbor_derive-fc8d712afbc9886d.dll: C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\lib.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\decode.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\describe.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\encode.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\type_id.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\utils.rs
+
+c:\Users\kvshe\tutorial\target\debug\deps\sbor_derive-fc8d712afbc9886d.d: C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\lib.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\decode.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\describe.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\encode.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\type_id.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\utils.rs
+
+C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\lib.rs:
+C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\decode.rs:
+C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\describe.rs:
+C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\encode.rs:
+C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\type_id.rs:
+C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\utils.rs:

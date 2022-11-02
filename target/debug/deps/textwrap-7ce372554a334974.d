@@ -1,0 +1,11 @@
+c:\Users\kvshe\tutorial\target\debug\deps\textwrap-7ce372554a334974.rmeta: C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\lib.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\indentation.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\word_separators.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\word_splitters.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\wrap_algorithms.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\line_ending.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\core.rs
+
+c:\Users\kvshe\tutorial\target\debug\deps\textwrap-7ce372554a334974.d: C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\lib.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\indentation.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\word_separators.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\word_splitters.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\wrap_algorithms.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\line_ending.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\core.rs
+
+C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\lib.rs:
+C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\indentation.rs:
+C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\word_separators.rs:
+C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\word_splitters.rs:
+C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\wrap_algorithms.rs:
+C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\line_ending.rs:
+C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\textwrap-0.16.0\src\core.rs:

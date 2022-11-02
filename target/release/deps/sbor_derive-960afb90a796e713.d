@@ -1,0 +1,10 @@
+C:\Users\kvshe\tutorial\target\release\deps\sbor_derive-960afb90a796e713.dll: C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\lib.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\decode.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\describe.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\encode.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\type_id.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\utils.rs
+
+C:\Users\kvshe\tutorial\target\release\deps\sbor_derive-960afb90a796e713.d: C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\lib.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\decode.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\describe.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\encode.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\type_id.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\utils.rs
+
+C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\lib.rs:
+C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\decode.rs:
+C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\describe.rs:
+C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\encode.rs:
+C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\type_id.rs:
+C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\sbor-derive\src\utils.rs:

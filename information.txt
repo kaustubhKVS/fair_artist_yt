@@ -1,0 +1,102 @@
+################## Scrypro tutorial notepad
+#################################################################
+
+scrupto install by radix: https://docs.radixdlt.com/main/scrypto/getting-started/install-scrypto.html
+scrypto examples by community: https://github.com/radixdlt/community-scrypto-examples
+scrypto YT playlist: https://www.youtube.com/playlist?list=PLBGHv3uedRNQf2TUP4lNUw4M4o56KtOGX
+
+other tutorial: https://www.scrypto-tutorial.com/getting-started/scrypto-concepts
+
+>> scrypto new-package tutorial
+>> code tutorial/src/lib.rs
+
+
+>> resim new-account
+
+A new account has been created!
+Account component address: account_sim1qvpcjddqfamw0st4kxgplwh4326x5endk0w9qrugu3gqh2dtfy
+Public key: 021f655d3e6d835bbf59afc152810057db2e2877a3afe2d3e090fd45d8b0dd0558
+Private key: b01d9876a621531758d4b231565d77d0e22d7aeb02172cb4ad8eedc45181a472   
+No configuration found on system. will use the above account as default.
+
+## resim set-default-account <ACCOUNT_COMPONENT_ADDRESS> <PRIVATE_KEY>
+
+>> resim set-default-account account_sim1qvpcjddqfamw0st4kxgplwh4326x5endk0w9qrugu3gqh2dtfy b01d9876a621531758d4b231565d77d0e22d7aeb02172cb4ad8eedc45181a472
+
+############# setup environment variables for powershell WINDOWS
+
+>> $account="account_sim1qvpcjddqfamw0st4kxgplwh4326x5endk0w9qrugu3gqh2dtfy"
+>> $pubkey="021f655d3e6d835bbf59afc152810057db2e2877a3afe2d3e090fd45d8b0dd0558"
+>> $privkey="b01d9876a621531758d4b231565d77d0e22d7aeb02172cb4ad8eedc45181a472"
+
+>> resim show $account
+
+Component: account_sim1qvpcjddqfamw0st4kxgplwh4326x5endk0w9qrugu3gqh2dtfy
+Blueprint: { package_address: package_sim1qyqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpsuluv44, blueprint_name: "Account" }
+Authorization
+├─ "deposit_batch" => AllowAll
+├─ "deposit" => AllowAll
+└─ "balance" => AllowAll
+State: Struct(KeyValueStore("c3f6d0ce93b30d9bffd81488ea439578feb3c076c91b4c93ed02db2561e27c4102040000"))
+Key Value Store: account_sim1qvpcjddqfamw0st4kxgplwh4326x5endk0w9qrugu3gqh2dtfy(c3f6d0ce93b30d9bffd81488ea439578feb3c076c91b4c93ed02db2561e27c41, 1026)
+└─ ResourceAddress("resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag") => Vault("c3f6d0ce93b30d9bffd81488ea439578feb3c076c91b4c93ed02db2561e27c4104040000")
+Resources:
+└─ { amount: 1000, resource address: resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag, name: "Radix", symbol: "XRD" }
+
+
+
+>> cd tutorial
+>> resim publish .
+
+Success! New Package: package_sim1qyc9z43m44d84wvdnqkc73r6qrd4r4tjgaalem3xa3jsqp2ney
+
+## export package=<package_address_returned_by_resim_publish>
+#####for powershell
+>> $package= "package_sim1qyc9z43m44d84wvdnqkc73r6qrd4r4tjgaalem3xa3jsqp2ney"
+
+>> resim call-function $package Hello instantiate_hello
+
+Transaction Status: COMMITTED SUCCESS
+Transaction Fee: 0.028006 XRD burned, 0.0014003 XRD tipped to validators
+Cost Units: 100000000 limit, 280060 consumed, 0.0000001 XRD per cost unit
+Logs: 0
+Instructions:
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
+├─ CallFunction { package_address: package_sim1qyc9z43m44d84wvdnqkc73r6qrd4r4tjgaalem3xa3jsqp2ney, blueprint_name: "Hello", method_name: "instantiate_hello", args: Struct() }
+└─ CallMethod { component_address: account_sim1qvpcjddqfamw0st4kxgplwh4326x5endk0w9qrugu3gqh2dtfy, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+Instruction Outputs:
+├─ ()
+├─ ComponentAddress("component_sim1qtwpuhtxjsju32rsyum62c48ys5mrrc2nvnaq5r5vuwsdjxqa4")
+└─ ()
+New Entities: 2
+└─ Component: component_sim1qtwpuhtxjsju32rsyum62c48ys5mrrc2nvnaq5r5vuwsdjxqa4
+└─ Resource: resource_sim1qpkzlpzcr9eqwnjwpm5mv69vqr9cgfuctxs2jvh7mdsqg5yrxe
+
+>> $component = "component_sim1qtwpuhtxjsju32rsyum62c48ys5mrrc2nvnaq5r5vuwsdjxqa4"
+
+>> resim call-method $component free_token
+
+Transaction Status: COMMITTED SUCCESS
+Transaction Fee: 0.1006739 XRD burned, 0.005033695 XRD tipped to validators
+Cost Units: 100000000 limit, 1006739 consumed, 0.0000001 XRD per cost unit
+Logs: 1
+└─ [INFO ] My balance is: 1000 HelloToken. Now giving away a token!
+Instructions:
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
+├─ CallMethod { component_address: component_sim1qtwpuhtxjsju32rsyum62c48ys5mrrc2nvnaq5r5vuwsdjxqa4, method_name: "free_token", args: Struct() }
+└─ CallMethod { component_address: account_sim1qvpcjddqfamw0st4kxgplwh4326x5endk0w9qrugu3gqh2dtfy, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+Instruction Outputs:
+├─ ()
+├─ Bucket(1025u32)
+└─ ()
+New Entities: 0
+
+
+
+
+
+git remote add origin https://github.com/kaustubhKVS/fair_artist_yt
+
+git checkout -b scrypto_learn
+git push -u origin scrypto_learn
+

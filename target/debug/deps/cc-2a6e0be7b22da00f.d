@@ -1,0 +1,13 @@
+c:\Users\kvshe\tutorial\target\debug\deps\cc-2a6e0be7b22da00f.rmeta: C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\lib.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\registry.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\winapi.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\com.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\setup_config.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\vs_instances.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\windows_registry.rs
+
+c:\Users\kvshe\tutorial\target\debug\deps\libcc-2a6e0be7b22da00f.rlib: C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\lib.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\registry.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\winapi.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\com.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\setup_config.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\vs_instances.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\windows_registry.rs
+
+c:\Users\kvshe\tutorial\target\debug\deps\cc-2a6e0be7b22da00f.d: C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\lib.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\registry.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\winapi.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\com.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\setup_config.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\vs_instances.rs C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\windows_registry.rs
+
+C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\lib.rs:
+C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\registry.rs:
+C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\winapi.rs:
+C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\com.rs:
+C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\setup_config.rs:
+C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\vs_instances.rs:
+C:\Users\kvshe\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.74\src\windows_registry.rs:

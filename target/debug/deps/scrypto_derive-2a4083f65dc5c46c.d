@@ -1,0 +1,10 @@
+c:\Users\kvshe\tutorial\target\debug\deps\scrypto_derive-2a4083f65dc5c46c.dll: C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\scrypto-derive\src\lib.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\scrypto-derive\src\ast.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\scrypto-derive\src\blueprint.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\scrypto-derive\src\import.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\scrypto-derive\src\non_fungible_data.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\scrypto-derive\src\utils.rs
+
+c:\Users\kvshe\tutorial\target\debug\deps\scrypto_derive-2a4083f65dc5c46c.d: C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\scrypto-derive\src\lib.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\scrypto-derive\src\ast.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\scrypto-derive\src\blueprint.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\scrypto-derive\src\import.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\scrypto-derive\src\non_fungible_data.rs C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\scrypto-derive\src\utils.rs
+
+C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\scrypto-derive\src\lib.rs:
+C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\scrypto-derive\src\ast.rs:
+C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\scrypto-derive\src\blueprint.rs:
+C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\scrypto-derive\src\import.rs:
+C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\scrypto-derive\src\non_fungible_data.rs:
+C:\Users\kvshe\.cargo\git\checkouts\radixdlt-scrypto-1833d92590086ce0\f4c4198\scrypto-derive\src\utils.rs:
