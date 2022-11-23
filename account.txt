@@ -1,0 +1,96 @@
+Account component address: account_sim1qdqvk0tpcgepxzm34kafe2hf4vfg9hm8t4p980dlj82q8tz24v
+Public key: 02848b2eac261cc1e8fe608dea9c838c7bc71daa5f2d24957f45de69efe3bed996
+Private key: a4d9bb8c8ad6af5b6102908db8cc64fff6f93c7f0ac0179592ad2aea5f7f1044
+
+## resim set-default-account <ACCOUNT_COMPONENT_ADDRESS> <PRIVATE_KEY>
+
+## resim set-default-account account_sim1qdqvk0tpcgepxzm34kafe2hf4vfg9hm8t4p980dlj82q8tz24v a4d9bb8c8ad6af5b6102908db8cc64fff6f93c7f0ac0179592ad2aea5f7f1044
+
+
+$account="account_sim1qdqvk0tpcgepxzm34kafe2hf4vfg9hm8t4p980dlj82q8tz24v"
+$pubkey="02848b2eac261cc1e8fe608dea9c838c7bc71daa5f2d24957f45de69efe3bed996"
+$privkey="a4d9bb8c8ad6af5b6102908db8cc64fff6f93c7f0ac0179592ad2aea5f7f1044"
+
+>> resim show $account
+
+
+$package="package_sim1qy0x2zmktju3qp400xj53n6av7crwxhlqyfa5dc8e6yq5ella4"
+
+>> resim call-function $package YtFair instantiate_ytfair
+
+$component="component_sim1q27zgjvagdgwx5vy0smtew57p3kzu2duqjjxd98gqpjq0mjttl"
+
+>>  resim call-method $component deposit 100,resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag
+>> resim show $account
+you can see 10XRD dedycted
+>> resim show $component
+10XRD credited
+
+
+
+
+
+terminal op:
+PS C:\KAUSTUBH\DDS\project\bankyt> resim publish .
+   Compiling bankyt v0.1.0 (C:\KAUSTUBH\DDS\project\bankyt)
+    Finished release [optimized] target(s) in 0.46s
+   Compiling bankyt v0.1.0 (C:\KAUSTUBH\DDS\project\bankyt)
+    Finished release [optimized] target(s) in 0.44s
+Success! New Package: package_sim1q8ve2r7jsaeygmxz47ndj6zawzcc05hwv7dse0t23x9qq3f3cz
+PS C:\KAUSTUBH\DDS\project\bankyt> $package="package_sim1q8ve2r7jsaeygmxz47ndj6zawzcc05hwv7dse0t23x9qq3f3cz"
+PS C:\KAUSTUBH\DDS\project\bankyt> resim call-function $package YtFair instantiate_ytfair
+Transaction Status: COMMITTED SUCCESS
+Transaction Fee: 0.0185578 XRD burned, 0.00092789 XRD tipped to validators
+Cost Units: 100000000 limit, 185578 consumed, 0.0000001 XRD per cost unit
+Logs: 0
+Instructions:
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
+├─ CallFunction { package_address: package_sim1q8ve2r7jsaeygmxz47ndj6zawzcc05hwv7dse0t23x9qq3f3cz, blueprint_name: "YtFair", method_name: "instantiate_ytfair", args: Struct() }
+└─ CallMethod { component_address: account_sim1qdqvk0tpcgepxzm34kafe2hf4vfg9hm8t4p980dlj82q8tz24v, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+Instruction Outputs:
+├─ ()
+├─ ComponentAddress("component_sim1q27zgjvagdgwx5vy0smtew57p3kzu2duqjjxd98gqpjq0mjttl")
+└─ ()
+New Entities: 1
+└─ Component: component_sim1q27zgjvagdgwx5vy0smtew57p3kzu2duqjjxd98gqpjq0mjttl
+PS C:\KAUSTUBH\DDS\project\bankyt> $component="component_sim1q27zgjvagdgwx5vy0smtew57p3kzu2duqjjxd98gqpjq0mjttl"
+PS C:\KAUSTUBH\DDS\project\bankyt> resim call-method $component deposit 10     
+Error: TransactionConstructionError(FailedToBuildArgs(FailedToParse(0, Custom { type_id: 177, generics: [] }, "10")))
+PS C:\KAUSTUBH\DDS\project\bankyt> resim call-method $component deposit 100,resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag    
+Transaction Status: COMMITTED SUCCESS
+Transaction Fee: 0.0392896 XRD burned, 0.00196448 XRD tipped to validators
+Cost Units: 100000000 limit, 392896 consumed, 0.0000001 XRD per cost unit
+Logs: 0
+Instructions:
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
+├─ CallMethod { component_address: account_sim1qdqvk0tpcgepxzm34kafe2hf4vfg9hm8t4p980dlj82q8tz24v, method_name: "withdraw_by_amount", args: Struct(Decimal("100"), ResourceAddress("resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag")) }
+├─ TakeFromWorktopByAmount { amount: 100, resource_address: resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag }
+├─ CallMethod { component_address: component_sim1q27zgjvagdgwx5vy0smtew57p3kzu2duqjjxd98gqpjq0mjttl, method_name: "deposit", args: Struct(Bucket(512u32)) }
+└─ CallMethod { component_address: account_sim1qdqvk0tpcgepxzm34kafe2hf4vfg9hm8t4p980dlj82q8tz24v, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+Instruction Outputs:
+├─ ()
+├─ Bucket(1025u32)
+├─ Bucket(512u32)
+├─ Bucket(1026u32)
+└─ ()
+New Entities: 0
+PS C:\KAUSTUBH\DDS\project\bankyt> resim show $account
+Component: account_sim1qdqvk0tpcgepxzm34kafe2hf4vfg9hm8t4p980dlj82q8tz24v
+Blueprint: { package_address: package_sim1qyqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpsuluv44, blueprint_name: "Account" }
+Authorization
+├─ "deposit_batch" => AllowAll
+├─ "deposit" => AllowAll
+└─ "balance" => AllowAll
+State: Struct(KeyValueStore("cf2a0fdfe5f79a83720f094b9bba219bb8d744e1acbe6a33104ee5b1741d215302040000"))
+Key Value Store: account_sim1qdqvk0tpcgepxzm34kafe2hf4vfg9hm8t4p980dlj82q8tz24v(cf2a0fdfe5f79a83720f094b9bba219bb8d744e1acbe6a33104ee5b1741d2153, 1026)
+└─ ResourceAddress("resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag") => Vault("cf2a0fdfe5f79a83720f094b9bba219bb8d744e1acbe6a33104ee5b1741d215304040000")
+Resources:
+└─ { amount: 990, resource address: resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag, name: "Radix", symbol: "XRD" }
+PS C:\KAUSTUBH\DDS\project\bankyt> resim show $component
+Component: component_sim1q27zgjvagdgwx5vy0smtew57p3kzu2duqjjxd98gqpjq0mjttl
+Blueprint: { package_address: package_sim1q8ve2r7jsaeygmxz47ndj6zawzcc05hwv7dse0t23x9qq3f3cz, blueprint_name: "YtFair" }
+Authorization
+State: Struct(Vault("aa93a7db67536723da4e78efd3eb8d811fff0d535c34e965097dc4b007c0bd0c01040000"))
+Resources:
+└─ { amount: 10, resource address: resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag, name: "Radix", symbol: "XRD" }
+PS C:\KAUSTUBH\DDS\project\bankyt>
