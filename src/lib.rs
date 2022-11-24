@@ -16,14 +16,11 @@ blueprint! {
             .globalize()
         }
 
-        pub fn deposit(&mut self, mut payment: Bucket) -> Bucket {
-            // take our price in XRD out of the payment
-            // if the caller has sent too few, or sent something other than XRD, they'll get a runtime error
-            let our_share = payment.take(10);
-            self.collected_xrd.put(our_share);
-            // return a tuple containing a gumball, plus whatever change is left on the input payment (if any)
-            // if we're out of gumballs to give, we'll see a runtime error when we try to grab one
-            payment
+        pub fn deposit(&mut self, mut payment: Bucket) -> () {
+            // take all the money sent in the bucket in XRD
+            // if the caller has sent something other than XRD, they'll get a runtime error           
+            self.collected_xrd.put(payment);
+            
         }
     }
 }
