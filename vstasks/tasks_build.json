@@ -1,0 +1,95 @@
+{
+    "version": "2.0.0",
+    "tasks": [{
+     "label": "cargo build",
+     "type": "shell",
+     "options": {
+        "cwd": "${workspaceFolder}"
+    },
+     "command": "cargo build",
+     "args": [],
+     "group": {
+       "kind": "build",
+       "isDefault": true
+     }
+    },
+    
+    {
+        "label": "cargo run",
+        "type": "shell",
+        "command": "cargo",
+        "args": [
+          "run"
+          // "--release",
+          // "--",
+          // "arg1"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+       },
+      
+       {
+        "label": "rustup stable",
+        "type": "shell",
+        "command": "rustup update stable ",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      },
+    
+      {
+        "label": "resim reset",
+        "type": "shell",
+        "command": "resim reset",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      },
+
+      {
+        "label": "scrypto main repo pull for update",
+        "type": "shell",
+        "options": {
+          "cwd": "C:/KAUSTUBH/DDS/radix/scryptoc_core/radixdlt-scrypto"
+                    },
+        "command": "git pull origin main",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+        
+      },
+
+      {
+        "label": "update resim simulator",
+        "type": "shell",
+        "options": {
+          "cwd": "C:/KAUSTUBH/DDS/radix/scryptoc_core/radixdlt-scrypto"
+                    },
+        "command": "cargo install --path ./simulator",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      },
+
+      {
+        "label": "resim publish smart contract",
+        "type": "shell",
+        "options": {
+          "cwd": "${workspaceFolder}"
+                  },
+        "command": "resim publish .",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      },
+      
+      
+    ]
+  }
