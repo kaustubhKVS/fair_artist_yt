@@ -49,14 +49,20 @@ struct VideoNFT {
     views:u64
 }
 
+// STRUCT FOR cc_nft
+#[derive(NonFungibleData)]
+struct ccNFT {
+    content_creator:String,
+    subscribers: u64,
+}
 
 blueprint!{
     struct YtFair {
     
     // VAULTS
     collected_xrd_vault: Vault,
-    cc_vaults: HashMap<NonFungibleId, Vault>,
-    
+    cc_vaults: Vault,
+    cc_vaults_hashmap: HashMap<NonFungibleId, Vault>,    
     video_vault : Vault,
     dead_vaults: Vec<Vault>,
     internal_admin_badge_vault: Vault,
@@ -64,11 +70,13 @@ blueprint!{
     // NFTs and Badges
     shareholder_badge_resource_address: ResourceAddress,
     video_nft:ResourceAddress,
+    cc_nft: ResourceAddress,
     
     // Int, string and other values
     is_locked: bool,
     random_card_id_counter:u64,
     total_amount_of_shares: Decimal,
+    cc_username_cc_nftID_hashmap: HashMap<String, NonFungibleId>
     
     /*
     hashmap<nonfungible ,  Vec<> >
@@ -171,6 +179,22 @@ blueprint!{
                     Mutability::LOCKED,
                 )
                 .no_initial_supply();
+
+                let cc_nft = ResourceBuilder::new_non_fungible()
+                .metadata("name", "CC NFT")
+                .metadata(
+                    "description",
+                    "A non-fungible-token used to represent content creators.",
+                )
+                .mintable(
+                    rule!(allow_all),
+                    Mutability::LOCKED,
+                )
+                .burnable(
+                    rule!(allow_all),
+                    Mutability::LOCKED,
+                )
+                .no_initial_supply();
         
 
 // INSTANTIATING THE RESOURCES
@@ -179,18 +203,23 @@ blueprint!{
             // Instantiate Vaults
             collected_xrd_vault: Vault::new(RADIX_TOKEN),
             internal_admin_badge_vault: Vault::with_bucket(internal_admin_badge_bucket),
-            cc_vaults: HashMap::new(),
+            
+            cc_vaults_hashmap: HashMap::new(),
+            cc_vaults: Vault::new(cc_nft),
+
             video_vault :  Vault::new(video_nft),
             dead_vaults: Vec::new(),
 
             // Instantiate Nfts and Badges
             shareholder_badge_resource_address: shareholder_badge,
             video_nft:video_nft,
+            cc_nft: cc_nft,
             
             // Instantiate int , str, and other datatypes
             is_locked: false,
             total_amount_of_shares: dec!("0"),
             random_card_id_counter:0,
+            cc_username_cc_nftID_hashmap: HashMap::new(),
         }
         .instantiate();
 
@@ -237,6 +266,47 @@ blueprint!{
 
     }
 
+// METHOD: minting of video NFTs when videos are uploaded
+// pub fn make_video_nft(&mut self,mut title:String,mut desc:String, mut url:String, mut ContentCreatorAddress:String) -> ()
+pub fn make_cc_nft_cc_vault(&mut self , cc_name: String ) -> ()
+{
+
+    let cc_details = ccNFT {
+        content_creator: cc_name.clone(),
+        subscribers:0
+    };
+    
+    let cc_nft_id: NonFungibleId = NonFungibleId::from_u64(self.random_card_id_counter);
+    let _cc_nft_id_clone = cc_nft_id.clone();
+
+    let cc_nft_bucket = borrow_resource_manager!(self.cc_nft).mint_non_fungible(
+                                                                                &cc_nft_id,
+                                                                                cc_details,
+                                                                                );
+
+    // Creating a vault for the shareholder
+    self.cc_vaults_hashmap.insert(
+        cc_nft_id,
+        Vault::new(RADIX_TOKEN),
+    );
+    
+    info!("Adding a new content creator with {} name", &cc_name);
+    
+    // DNS service type thing for inputting username of content creator and outputting the cc_NFT id of the content creator
+    // input username
+    // output cc_NFT_ID
+    self.cc_username_cc_nftID_hashmap.insert(
+        cc_name,
+        _cc_nft_id_clone ,
+    );
+
+    // incrementing the random counter
+    self.random_card_id_counter += 1;
+
+    // adding the cc_NFT to cc_vault 
+    self.cc_vaults.put(cc_nft_bucket)
+
+}
 
 // METHOD: SHOWING INFORMATION IN THE TOKEN
        pub fn show_token_info(address: ResourceAddress) {
