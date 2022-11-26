@@ -34,17 +34,60 @@ struct ShareHolder {
     amount_of_shares: Decimal,
 }
 
+// STRUCT FOR video_nft
+#[derive(NonFungibleData)]
+struct VideoNFT {
+    video_title:String,
+    content_creator:String,
+    video_url: String,
+    likes:u64,
+    views:u64
+}
 
-blueprint! {
+
+blueprint!{
     struct YtFair {
         
     collected_xrd: Vault,
     shareholder_badge_resource_address: ResourceAddress,
     internal_admin_badge: Vault,
-    vaults: HashMap<NonFungibleId, Vault>,
+    cc_vaults: HashMap<NonFungibleId, Vault>,
+    video_vault : Vault,
+    
+    //     hashmap<nonfungible ,  Vec<> >
+
+    // videoNFT_vault: Vault,
+    // videoNFid_array: Vec<NonFungibleId>,
+
+    // videoNFT_vault: Vault,
+    // videoNFid_array: Vec<NonFungibleId>,
+    // // video ,cc, viwer
+    
+    // // video, cc :
+    //     keep track ki konsa video banaya hanging
+    //     video_ownership: HashMap<videonftID(NonFungibleId) , cc_NFT(NonFungibleId)>
+
+    // // video, viwer:
+    //     likes, views
+    
+    // // cc , viewer:
+    //     viwer sends money to cc:
+    //     deposit input: videonftID
+    //     output: bucket
+    //     process:
+    //         hit video_ownership and get cc_NFT
+    //         hit cc_vault and get CC ke vault ka resource address
+    //         send bucket to that resource address
+          
+
+    // videoNFT_vault: Vault,    
+    // videoNFT_vault: Vec<NonFungibleId>,
+
     dead_vaults: Vec<Vault>,
     is_locked: bool,
     total_amount_of_shares: Decimal,
+    video_nft:ResourceAddress,
+    random_card_id_counter:u64,
 
     // accepted_token_resource_address: ResourceAddress,    
 }
@@ -78,7 +121,7 @@ blueprint! {
                 )
                 .mintable(
                     rule!(require(internal_admin_badge.resource_address())),
-                    Mutability::LOCKED,
+                   Mutability::LOCKED,                    
                 )
                 .burnable(
                     rule!(require(internal_admin_badge.resource_address())),
@@ -86,17 +129,42 @@ blueprint! {
                 )
                 .no_initial_supply();
             
+            
+            let video_nft = ResourceBuilder::new_non_fungible()
+                .metadata("name", "Video NFT")
+                .metadata(
+                    "description",
+                    "A non-fungible-token used to represent videos.",
+                )
+                .mintable(
+                    rule!(allow_all),
+                    Mutability::LOCKED,
+                )
+                .burnable(
+                    rule!(allow_all),
+                    Mutability::LOCKED,
+                )
+                .no_initial_supply();
+            // random_card_id_counter=0;
+                //create vault
+        
+        
 
-
+        //Self instantiate
         let mut payment_splitter: YtFairComponent = Self {
             collected_xrd: Vault::new(RADIX_TOKEN),
             // accepted_token_resource_address: accepted_token_resource_address,
             shareholder_badge_resource_address: shareholder_badge,
             internal_admin_badge: Vault::with_bucket(internal_admin_badge),
-            vaults: HashMap::new(),
+            cc_vaults: HashMap::new(),
+            video_nft:video_nft,
+            video_vault :  Vault::new(video_nft),
             dead_vaults: Vec::new(),
+            // video_nfts: Vec::new(),
             is_locked: false,
             total_amount_of_shares: dec!("0"),
+            
+            random_card_id_counter:0,
         }
         .instantiate();
 
@@ -110,5 +178,52 @@ blueprint! {
             self.collected_xrd.put(payment);
             
         }
+
+        // pub fn make_video_nft(&mut self,mut title:String,mut desc:String, mut url:String, mut ContentCreatorAddress:String) -> ()
+        pub fn make_video_nft(&mut self) -> ()
+        {
+            let vidz = VideoNFT {
+                video_title:"New video".to_string(),
+                content_creator:"Shivam".to_string(),
+                video_url: "www.google.com".to_string(),
+                likes:0,
+                views:0
+            };
+            // let nft_bucket:Bucket = self.internal_admin_badge(borrow_resource_manager!(self.video_nft).mint_non_fungible(
+            //     &NonFungibleId::from_u64(self.random_card_id_counter),
+            //     new_card,
+            // ));
+            let nft_bucket = borrow_resource_manager!(self.video_nft).mint_non_fungible(
+                &NonFungibleId::from_u64(self.random_card_id_counter),
+                vidz,
+            );
+            self.random_card_id_counter += 1;
+            self.video_vault.put(nft_bucket)
+
+    }
+
+       pub fn show_token_info(address: ResourceAddress) {
+           // We borrow the resource manager of the provided address
+            let manager: &ResourceManager = borrow_resource_manager!(address);
+ 
+           // Get the resource type
+           match manager.resource_type() {
+               ResourceType::Fungible{divisibility} => {
+                   info!("Fungible resource with divisibility of {}", divisibility)
+               },
+               ResourceType::NonFungible => {
+                   info!("Non Fungible resource")
+               }
+           }
+ 
+           // Get the total supply
+           info!("Total supply: {}", manager.total_supply());
+ 
+           // Get information stored in the metadata
+           let metadata: HashMap<String, String> = manager.metadata();
+           let token_name = metadata.get("name").expect("Token does not have a name");
+           let token_symbol = metadata.get("symbol").expect("Token does not have a symbol");
+           info!("Name: {}. Symbol: {}", token_name, token_symbol);
+       } 
     }
 }
