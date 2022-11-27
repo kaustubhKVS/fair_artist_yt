@@ -76,7 +76,8 @@ blueprint!{
     
     // Int, string and other values
     is_locked: bool,
-    random_card_id_counter:u64,
+    random_videonft_id_counter:u64,
+    cc_account_id_counter:u64,
     total_amount_of_shares: Decimal,
     cc_username_cc_nftID_hashmap: HashMap<String, NonFungibleId>
     
@@ -224,7 +225,8 @@ blueprint!{
             // Instantiate int , str, and other datatypes
             is_locked: false,
             total_amount_of_shares: dec!("0"),
-            random_card_id_counter:0,
+            random_videonft_id_counter:0,
+            cc_account_id_counter:0,
             cc_username_cc_nftID_hashmap: HashMap::new(),
         }
         .instantiate();
@@ -233,10 +235,6 @@ blueprint!{
             
 }
             
-
-
-
-
 
 // METHOD: deposit function to deposit the money
         pub fn deposit(&mut self, mut payment: Bucket) -> () {
@@ -249,8 +247,7 @@ blueprint!{
 
 
 // METHOD: minting of video NFTs when videos are uploaded
-// pub fn make_video_nft(&mut self,mut title:String,mut desc:String, mut url:String, mut ContentCreatorAddress:String) -> ()
-        pub fn make_video_nft(&mut self,video_title : String, content_creator:String, video_url : String) -> ()
+    pub fn make_video_nft(&mut self,video_title : String, content_creator:String, video_url : String) -> ()
         {
             let vidz = VideoNFT {
                 video_title:video_title.clone(),
@@ -264,40 +261,55 @@ blueprint!{
             //     new_card,
             // ));
             let nft_bucket = borrow_resource_manager!(self.video_nft).mint_non_fungible(
-                &NonFungibleId::from_u64(self.random_card_id_counter),
+                &NonFungibleId::from_u64(self.random_videonft_id_counter),
                 vidz,
             );
             
-            info!("id counter {}",self.random_card_id_counter);
             self.video_vault.put(nft_bucket);
-            let nonfun_id_BTreeSet =self.video_vault.non_fungible_ids(); 
-            // info!("vid vault {}",self.video_vault.non_fungible_ids().get(&NonFungibleId::from_u64(self.random_card_id_counter)));
-            let temp_nft_id = nonfun_id_BTreeSet.get(&NonFungibleId::from_u64(self.random_card_id_counter)).unwrap();
-            // let rand_varss = borrow_resource_manager!(temp_var);
-            info!("temp vars {:?}",temp_nft_id);
-            let mut temp_nftdata:VideoNFT= borrow_resource_manager!(self.video_nft).get_non_fungible_data(temp_nft_id);
-            // let temp_nftdataspecific=temp_nftdata;
-            // info!("video title {:?}",temp_nftdata.video_title);
-            // let nftdata = self.get_NFT_from_vault_using_NFTID(self.video_vault,self.video_nft,self.random_card_id_counter);
-            info!("likes {:?}",temp_nftdata.likes);
-            // let mut cloned_nft_data=temp_nftdata.clone();
-            // let like_amount: u64  = temp_nftdata.likes;
-            let updated_videonft = VideoNFT {
-                video_title:temp_nftdata.video_title,
-                content_creator:temp_nftdata.content_creator,
-                video_url: temp_nftdata.video_url,
-                likes:temp_nftdata.likes+1,
-                views:temp_nftdata.views
-            };
-            // le
-            borrow_resource_manager!(self.video_nft).update_non_fungible_data(&NonFungibleId::from_u64(self.random_card_id_counter),updated_videonft);
-            info!("likes {:?}",temp_nftdata.likes);
-            self.random_card_id_counter += 1;
+            // info!("created NFT with id counter {}, NFT id {} and title {} created by content creator {}",self.random_card_id_counter,NonFungibleId::from_u64(self.random_card_id_counter),vidz.video_title,vidz.content_creator);
             
-
-
+            self.random_videonft_id_counter += 1;
+            
     }
 
+    pub fn update_video_nft_likes(&mut self,NFTID:u64) -> ()
+    {
+        
+        let nonfungtok_id_BTreeSet =self.video_vault.non_fungible_ids(); 
+        let actual_nft_id = nonfungtok_id_BTreeSet.get(&NonFungibleId::from_u64(NFTID)).unwrap();
+        
+        info!("NFT ID of the video to update {:?}",actual_nft_id);
+        let mut temp_nftdata:VideoNFT= borrow_resource_manager!(self.video_nft).get_non_fungible_data(actual_nft_id);
+        let updated_videoNFT = VideoNFT {
+            video_title:temp_nftdata.video_title,
+            content_creator:temp_nftdata.content_creator,
+            video_url: temp_nftdata.video_url,
+            likes:temp_nftdata.likes+1,
+            views:temp_nftdata.views
+        };
+        // le
+        borrow_resource_manager!(self.video_nft).update_non_fungible_data(actual_nft_id,updated_videoNFT);
+        // self.random_card_id_counter += 1;
+    }
+
+    pub fn update_video_nft_views(&mut self,NFTID:u64) -> ()
+    {
+        
+        let nonfungtok_id_BTreeSet =self.video_vault.non_fungible_ids(); 
+        let actual_nft_id = nonfungtok_id_BTreeSet.get(&NonFungibleId::from_u64(NFTID)).unwrap();
+        // let rand_varss = borrow_resource_manager!(temp_var);
+        info!("NFT ID of the video to update {:?}",actual_nft_id);
+        let mut temp_nftdata:VideoNFT= borrow_resource_manager!(self.video_nft).get_non_fungible_data(actual_nft_id);
+        let updated_videoNFT = VideoNFT {
+            video_title:temp_nftdata.video_title,
+            content_creator:temp_nftdata.content_creator,
+            video_url: temp_nftdata.video_url,
+            likes:temp_nftdata.likes,
+            views:temp_nftdata.views+1
+        };
+        
+        borrow_resource_manager!(self.video_nft).update_non_fungible_data(actual_nft_id,updated_videoNFT);
+    }
     //helper funciton
     // pub fn get_NFT_from_vault_using_NFTID(&mut self,NFTVault : Vault,nftReference : ResourceAddress,NFTID:u64 ) -> (NonFungible<T>)
     // {
@@ -308,28 +320,6 @@ blueprint!{
     // }
 
 
-//     pub fn update_likes(&mut self) -> ()
-//     {
-        
-//         let vidz = VideoNFT {
-//             video_title:video_title.clone(),
-//             content_creator:content_creator.clone(),
-//             video_url: video_url.clone(),
-//             likes:0,
-//             views:0
-//         };
-//         // let nft_bucket:Bucket = self.internal_admin_badge_vault(borrow_resource_manager!(self.video_nft).mint_non_fungible(
-//         //     &NonFungibleId::from_u64(self.random_card_id_counter),
-//         //     new_card,
-//         // ));
-//         let nft_bucket = borrow_resource_manager!(self.video_nft).mint_non_fungible(
-//             &NonFungibleId::from_u64(self.random_card_id_counter),
-//             vidz,
-//         );
-//         self.random_card_id_counter += 1;
-//         self.video_vault.put(nft_bucket)
-
-// }
 // METHOD: minting of video NFTs when videos are uploaded
 // pub fn make_video_nft(&mut self,mut title:String,mut desc:String, mut url:String, mut ContentCreatorAddress:String) -> ()
 pub fn make_cc_nft_cc_vault(&mut self , cc_name: String ) -> ()
@@ -340,7 +330,7 @@ pub fn make_cc_nft_cc_vault(&mut self , cc_name: String ) -> ()
         subscribers:0
     };
     
-    let cc_nft_id: NonFungibleId = NonFungibleId::from_u64(self.random_card_id_counter);
+    let cc_nft_id: NonFungibleId = NonFungibleId::from_u64(self.cc_account_id_counter);
     let _cc_nft_id_clone = cc_nft_id.clone();
 
     let cc_nft_bucket = borrow_resource_manager!(self.cc_nft).mint_non_fungible(
@@ -365,7 +355,7 @@ pub fn make_cc_nft_cc_vault(&mut self , cc_name: String ) -> ()
     );
 
     // incrementing the random counter
-    self.random_card_id_counter += 1;
+    self.cc_account_id_counter += 1;
 
     // adding the cc_NFT to cc_vault 
     self.cc_vaults.put(cc_nft_bucket)
