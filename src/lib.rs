@@ -101,7 +101,7 @@ blueprint!{
     // HashMaps for Corelations
     cc_username_cc_nftID_hashmap: HashMap<String, NonFungibleId>,
     video_url_videoNFTID_hashmap: HashMap<String, NonFungibleId>,
-    videonftID_ccNFTID_hashmap: HashMap<NonFungibleId, String>,
+    videonftID_ccNFTID_hashmap: HashMap<NonFungibleId, NonFungibleId>,
     ccNFT_VideoNFT_hashmap: HashMap<NonFungibleId, NonFungibleId>,
     
     // ContentCreator Information array
@@ -335,8 +335,36 @@ blueprint!{
 // METHOD: Minting of video NFTs when videos are uploaded
     pub fn make_video_nft(&mut self,video_title : String, content_creator:String, video_url : String) -> ()
         {   
-            // Check if the User Exists in the system
+            /*
+            cc_username_list: Vec::new(), 
+            cc_nftID_list: Vec::new(),
 
+            video_url_videoNFTID_hashmap: HashMap::new(),
+            videonftID_ccNFTID_hashmap: HashMap::new(),
+            ccNFT_VideoNFT_hashmap: HashMap::new(),
+            
+            // Video Information array 
+            video_url_list: Vec::new(),
+            video_nftID_list: Vec::new(),
+            */
+
+            let _cc_username_checker = content_creator.clone();
+            let _temp_video_title = video_title.clone();
+            let _clone_video_url = video_url.clone();
+
+            // Check if the User Exists in the system
+            assert!(if self.cc_username_list.iter().any(|i| i==&_cc_username_checker)
+                        {
+                            true
+                        }
+                    else
+                        {
+                            false
+                        },
+                        "[USER DOES NOT EXIST]: Can't Upload Video {} since User {} does not exist",
+                        _temp_video_title,
+                        _cc_username_checker
+                        );
 
             // creating a Initialiaser Struct for Incoming Video 
             let vidz = VideoNFT {
@@ -351,9 +379,41 @@ blueprint!{
             let nft_bucket = borrow_resource_manager!(self.video_nft).mint_non_fungible( &NonFungibleId::from_u64(self.random_videonft_id_counter),
                                                                                                                                             vidz,);
             
+///////////////////////////////////////////////
+/// 
+/*
+video_url_videoNFTID_hashmap: HashMap::new(),
+videonftID_ccNFTID_hashmap: HashMap::new(),
+ccNFT_VideoNFT_hashmap: HashMap::new(),
+*/
 
+// // Video Information array 
+// video_url_list: Vec::new(),
+// video_nftID_list: Vec::new(),
+// */        
+
+
+            let cc_username: String = content_creator.clone();
             
+            // Using the Username in HashMap Fetching the ID of Content Creator NFT 
+            let cc_nftID = self.cc_username_cc_nftID_hashmap.get(&cc_username).unwrap().clone();
 
+            // Adding entries IPFS URLS to list
+            self.video_url_list.push(_clone_video_url.clone());
+
+            // Adding videoNFT ID to list
+            self.video_nftID_list.push(NonFungibleId::from_u64(self.random_videonft_id_counter));
+            
+            // Adding association of IPFS Hashes to videonftID
+            self.video_url_videoNFTID_hashmap.insert(_clone_video_url,NonFungibleId::from_u64(self.random_videonft_id_counter));
+            
+            // Adding association of ownership of videoNFTs to Content Creators
+            self.videonftID_ccNFTID_hashmap.insert(NonFungibleId::from_u64(self.random_videonft_id_counter),cc_nftID.clone());
+            
+            // Adding association of ownership of videoNFTs to Content Creators
+            self.ccNFT_VideoNFT_hashmap.insert(cc_nftID,NonFungibleId::from_u64(self.random_videonft_id_counter));
+
+            // Adding VideoNFT to a Bucket
             self.video_vault.put(nft_bucket);
             // info!("created NFT with id counter {}, NFT id {} and title {} created by content creator {}",self.random_card_id_counter,NonFungibleId::from_u64(self.random_card_id_counter),vidz.video_title,vidz.content_creator);
             
