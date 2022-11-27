@@ -122,11 +122,7 @@ blueprint!{
     /*
     videoNFT_vault: Vault,    
     videoNFT_vault: Vec<NonFungibleId>,
-    */
-
-    
-
-    // accepted_token_resource_address: ResourceAddress,    
+    */ 
 }
 
     impl YtFair 
@@ -310,6 +306,8 @@ blueprint!{
         
         borrow_resource_manager!(self.video_nft).update_non_fungible_data(actual_nft_id,updated_videoNFT);
     }
+    
+    
     //helper funciton
     // pub fn get_NFT_from_vault_using_NFTID(&mut self,NFTVault : Vault,nftReference : ResourceAddress,NFTID:u64 ) -> (NonFungible<T>)
     // {
@@ -349,6 +347,7 @@ pub fn make_cc_nft_cc_vault(&mut self , cc_name: String ) -> ()
     // DNS service type thing for inputting username of content creator and outputting the cc_NFT id of the content creator
     // input username
     // output cc_NFT_ID
+
     self.cc_username_cc_nftID_hashmap.insert(
         cc_name,
         _cc_nft_id_clone ,
@@ -361,6 +360,31 @@ pub fn make_cc_nft_cc_vault(&mut self , cc_name: String ) -> ()
     self.cc_vaults.put(cc_nft_bucket)
 
 }
+
+
+
+// METHOD: send money to content creator vaults
+pub fn deposit_cc_nft_cc_vault(&mut self , cc_name: String, payment_bucket: Bucket ) -> ()
+{
+    let cc_username: String = cc_name.clone();
+    
+    let cc_nftID = self.cc_username_cc_nftID_hashmap.get(&cc_username).unwrap();
+
+    info!("NFT ID of the {:?}",&cc_nftID);
+    info!("Name of CC of the {:?}",&cc_username);
+
+    // Getting the vault for the Content Creator
+    let cc_ownership_vault: &mut Vault = self.cc_vaults_hashmap.get_mut(cc_nftID).unwrap();
+
+    info!("VaultID of CC of the {:?}",&cc_ownership_vault);
+    info!("Sending {} XRD to Content Creator {} are available.", payment_bucket.amount(), cc_username);
+
+    // Sending the payment to the owner vault
+    cc_ownership_vault.put(payment_bucket);
+
+}
+
+
 
 // METHOD: SHOWING INFORMATION IN THE TOKEN
        pub fn show_token_info(address: ResourceAddress) {

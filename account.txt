@@ -674,3 +674,30 @@ Resources:
 │  └─ NonFungible { id: NonFungibleId("0a0100000000000000"), immutable_data: Struct("DickSuckerBej", "KanyeSouthAKADharan", "https://www.youtube.com/watch?v=LIIDh-qI9oI"), mutable_data: Struct(1u64, 1u64) }
 └─ { amount: 0, resource address: resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag, name: "Radix", symbol: "XRD" }
 PS C:\KAUSTUBH\DDS\project\fair_artist_yt
+
+
+
+---------------------------------------------------------------------v0.8 complete payment system---------------
+
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim call-method $component deposit_cc_nft_cc_vault baba 100,resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag
+Transaction Status: COMMITTED SUCCESS
+Transaction Fee: 0.1082205 XRD burned, 0.005411025 XRD tipped to validators
+Cost Units: 100000000 limit, 1082205 consumed, 0.0000001 XRD per cost unit
+Logs: 4
+├─ [INFO ] NFT ID of the 0a0000000000000000
+├─ [INFO ] Name of CC of the "baba"
+├─ [INFO ] VaultID of CC of the c3b143a2d7a27341de47a3995f08cf68f4e10c80333d40733e49d0a48412317502040000
+└─ [INFO ] Sending 100 XRD to Content Creator baba are available.
+Instructions:
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
+├─ CallMethod { component_address: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl, method_name: "withdraw_by_amount", args: Struct(Decimal("100"), ResourceAddress("resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag")) }
+├─ TakeFromWorktopByAmount { amount: 100, resource_address: resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag }
+├─ CallMethod { component_address: component_sim1qthj3fmh49cfkgwwjcn20jxm5lpq87p6rf0zrx0200tqxch2he, method_name: "deposit_cc_nft_cc_vault", args: Struct("baba", Bucket(512u32)) }
+└─ CallMethod { component_address: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+Instruction Outputs:
+├─ ()
+├─ Bucket(1025u32)
+├─ Bucket(512u32)
+├─ ()
+└─ ()
+New Entities: 0
