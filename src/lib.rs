@@ -32,6 +32,22 @@ ALL IN STRUCT SHOULD BE MENTINED IN INTIALING FUNCTION
 */
 
 
+
+
+/*
+Adding comments to videoNFT using HashMap of <ViewerToken , CommentString>
+*/
+
+/*
+        video_url_list = vector<url1,url2,url3,url4, .........>
+        video_url_VideoNFTID_hashmap< url , NFTID  >
+        videonftID_ccNFTID_hashmap<   ,   >
+        ccNFT_VideoNFT_hashmap<   ,   >
+        */
+
+
+
+
 // STRUCT FOR Creator_nft
 #[derive(NonFungibleData)]
 struct ShareHolder {
@@ -48,7 +64,8 @@ struct VideoNFT {
     #[scrypto(mutable)]
     likes:u64,
     #[scrypto(mutable)]
-    views:u64
+    views:u64,
+
 }
 
 // STRUCT FOR cc_nft
@@ -56,6 +73,7 @@ struct VideoNFT {
 struct ccNFT {
     content_creator:String,
     subscribers: u64,
+
 }
 
 blueprint!{
@@ -79,8 +97,23 @@ blueprint!{
     random_videonft_id_counter:u64,
     cc_account_id_counter:u64,
     total_amount_of_shares: Decimal,
-    cc_username_cc_nftID_hashmap: HashMap<String, NonFungibleId>
+
+    // HashMaps for Corelations
+    cc_username_cc_nftID_hashmap: HashMap<String, NonFungibleId>,
+    video_url_videoNFTID_hashmap: HashMap<String, NonFungibleId>,
+    videonftID_ccNFTID_hashmap: HashMap<NonFungibleId, String>,
+    ccNFT_VideoNFT_hashmap: HashMap<NonFungibleId, NonFungibleId>,
     
+    // ContentCreator Information array
+    cc_username_list: Vec<String>,
+    cc_nftID_list: Vec<NonFungibleId>,
+    
+    // Video Information array 
+    video_url_list: Vec<String>,
+    video_nftID_list: Vec<NonFungibleId>,
+    
+    
+
     /*
     hashmap<nonfungible ,  Vec<> >
     */
@@ -201,7 +234,7 @@ blueprint!{
         
 
 // INSTANTIATING THE RESOURCES
-        let mut payment_splitter: YtFairComponent = Self {
+        let mut YtFairInitialiser: YtFairComponent = Self {
             
             // Instantiate Vaults
             collected_xrd_vault: Vault::new(RADIX_TOKEN),
@@ -223,11 +256,25 @@ blueprint!{
             total_amount_of_shares: dec!("0"),
             random_videonft_id_counter:0,
             cc_account_id_counter:0,
+
+            // HashMaps for Corelations
             cc_username_cc_nftID_hashmap: HashMap::new(),
+            video_url_videoNFTID_hashmap: HashMap::new(),
+            videonftID_ccNFTID_hashmap: HashMap::new(),
+            ccNFT_VideoNFT_hashmap: HashMap::new(),
+    
+            // Vectors which are array
+            cc_username_list: Vec::new(), 
+            cc_nftID_list: Vec::new(),
+    
+            // Video Information array 
+            video_url_list: Vec::new(),
+            video_nftID_list: Vec::new(),
+
         }
         .instantiate();
 
-        return (payment_splitter.globalize(), admin_badge);
+        return (YtFairInitialiser.globalize(), admin_badge);
             
 }
             
@@ -240,11 +287,58 @@ blueprint!{
             
         }
 
-
-
-// METHOD: minting of video NFTs when videos are uploaded
-    pub fn make_video_nft(&mut self,video_title : String, content_creator:String, video_url : String) -> ()
+// METHOD: Make Content Creator NFT and Creating Content Creator Vault
+        pub fn make_cc_nft_cc_vault(&mut self , cc_name: String ) -> ()
         {
+        
+            let cc_details = ccNFT {
+                content_creator: cc_name.clone(),
+                subscribers:0
+            };
+            
+            let cc_nft_id: NonFungibleId = NonFungibleId::from_u64(self.cc_account_id_counter);
+            let _cc_nft_id_clone = cc_nft_id.clone();
+        
+            let cc_nft_bucket = borrow_resource_manager!(self.cc_nft).mint_non_fungible(
+                                                                                        &cc_nft_id,
+                                                                                        cc_details,
+                                                                                        );
+        
+            // Creating a vault for the shareholder
+            self.cc_vaults_hashmap.insert(
+                cc_nft_id,
+                Vault::new(RADIX_TOKEN),
+            );
+            
+            info!("Adding a new content creator with {} name", &cc_name);
+            
+            // DNS service type thing for inputting username of content creator and outputting the cc_NFT id of the content creator
+            // input username
+            // output cc_NFT_ID
+        
+            self.cc_username_cc_nftID_hashmap.insert(
+                cc_name.clone(),
+                _cc_nft_id_clone ,
+            );
+
+            self.cc_username_list.push(cc_name);
+            self.cc_nftID_list.push(NonFungibleId::from_u64(self.cc_account_id_counter));
+
+            // incrementing the random counter
+            self.cc_account_id_counter += 1;
+        
+            // adding the cc_NFT to cc_vault 
+            self.cc_vaults.put(cc_nft_bucket)
+        
+        }
+
+// METHOD: Minting of video NFTs when videos are uploaded
+    pub fn make_video_nft(&mut self,video_title : String, content_creator:String, video_url : String) -> ()
+        {   
+            // Check if the User Exists in the system
+
+
+            // creating a Initialiaser Struct for Incoming Video 
             let vidz = VideoNFT {
                 video_title:video_title.clone(),
                 content_creator:content_creator.clone(),
@@ -252,15 +346,14 @@ blueprint!{
                 likes:0,
                 views:0
             };
-            // let nft_bucket:Bucket = self.internal_admin_badge_vault(borrow_resource_manager!(self.video_nft).mint_non_fungible(
-            //     &NonFungibleId::from_u64(self.random_card_id_counter),
-            //     new_card,
-            // ));
-            let nft_bucket = borrow_resource_manager!(self.video_nft).mint_non_fungible(
-                &NonFungibleId::from_u64(self.random_videonft_id_counter),
-                vidz,
-            );
             
+            // Minting the VideoNFT using the VideoNFT struct
+            let nft_bucket = borrow_resource_manager!(self.video_nft).mint_non_fungible( &NonFungibleId::from_u64(self.random_videonft_id_counter),
+                                                                                                                                            vidz,);
+            
+
+            
+
             self.video_vault.put(nft_bucket);
             // info!("created NFT with id counter {}, NFT id {} and title {} created by content creator {}",self.random_card_id_counter,NonFungibleId::from_u64(self.random_card_id_counter),vidz.video_title,vidz.content_creator);
             
@@ -283,7 +376,7 @@ blueprint!{
             likes:temp_nftdata.likes+1,
             views:temp_nftdata.views
         };
-        // le
+
         borrow_resource_manager!(self.video_nft).update_non_fungible_data(actual_nft_id,updated_videoNFT);
         // self.random_card_id_counter += 1;
     }
@@ -320,46 +413,8 @@ blueprint!{
 
 // METHOD: minting of video NFTs when videos are uploaded
 // pub fn make_video_nft(&mut self,mut title:String,mut desc:String, mut url:String, mut ContentCreatorAddress:String) -> ()
-pub fn make_cc_nft_cc_vault(&mut self , cc_name: String ) -> ()
-{
 
-    let cc_details = ccNFT {
-        content_creator: cc_name.clone(),
-        subscribers:0
-    };
-    
-    let cc_nft_id: NonFungibleId = NonFungibleId::from_u64(self.cc_account_id_counter);
-    let _cc_nft_id_clone = cc_nft_id.clone();
 
-    let cc_nft_bucket = borrow_resource_manager!(self.cc_nft).mint_non_fungible(
-                                                                                &cc_nft_id,
-                                                                                cc_details,
-                                                                                );
-
-    // Creating a vault for the shareholder
-    self.cc_vaults_hashmap.insert(
-        cc_nft_id,
-        Vault::new(RADIX_TOKEN),
-    );
-    
-    info!("Adding a new content creator with {} name", &cc_name);
-    
-    // DNS service type thing for inputting username of content creator and outputting the cc_NFT id of the content creator
-    // input username
-    // output cc_NFT_ID
-
-    self.cc_username_cc_nftID_hashmap.insert(
-        cc_name,
-        _cc_nft_id_clone ,
-    );
-
-    // incrementing the random counter
-    self.cc_account_id_counter += 1;
-
-    // adding the cc_NFT to cc_vault 
-    self.cc_vaults.put(cc_nft_bucket)
-
-}
 
 
 
@@ -411,10 +466,28 @@ pub fn deposit_cc_nft_cc_vault(&mut self , cc_name: String, payment_bucket: Buck
            info!("Name: {}. Symbol: {}", token_name, token_symbol);
        }
        
-       
+       pub fn fetch_video_details_and_update_view(&mut self,NFTID:u64) -> ()
+       {
+           
+           let nonfungtok_id_BTreeSet =self.video_vault.non_fungible_ids(); 
+           let actual_nft_id = nonfungtok_id_BTreeSet.get(&NonFungibleId::from_u64(NFTID)).unwrap();
+           // let rand_varss = borrow_resource_manager!(temp_var);
+           info!("NFT ID of the video to Viewed  {:?}",actual_nft_id);
+           let mut temp_nftdata:VideoNFT= borrow_resource_manager!(self.video_nft).get_non_fungible_data(actual_nft_id);
+           let updated_videoNFT = VideoNFT {
+               video_title:temp_nftdata.video_title,
+               content_creator:temp_nftdata.content_creator,
+               video_url: temp_nftdata.video_url,
+               likes:temp_nftdata.likes,
+               views:temp_nftdata.views+1
+           };
+           
+           borrow_resource_manager!(self.video_nft).update_non_fungible_data(actual_nft_id,updated_videoNFT);
+       }   
 
 
-
+    
+        
 
 
 
