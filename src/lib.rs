@@ -275,13 +275,38 @@ blueprint!{
             let temp_nft_id = nonfun_id_BTreeSet.get(&NonFungibleId::from_u64(self.random_card_id_counter)).unwrap();
             // let rand_varss = borrow_resource_manager!(temp_var);
             info!("temp vars {:?}",temp_nft_id);
-            let temp_nftdata:VideoNFT= borrow_resource_manager!(self.video_nft).get_non_fungible_data(temp_nft_id);
-            let temp_nftdataspecific=temp_nftdata;
-            info!("video title {:?}",temp_nftdataspecific.video_title);
+            let mut temp_nftdata:VideoNFT= borrow_resource_manager!(self.video_nft).get_non_fungible_data(temp_nft_id);
+            // let temp_nftdataspecific=temp_nftdata;
+            // info!("video title {:?}",temp_nftdata.video_title);
+            // let nftdata = self.get_NFT_from_vault_using_NFTID(self.video_vault,self.video_nft,self.random_card_id_counter);
+            info!("likes {:?}",temp_nftdata.likes);
+            // let mut cloned_nft_data=temp_nftdata.clone();
+            // let like_amount: u64  = temp_nftdata.likes;
+            let updated_videonft = VideoNFT {
+                video_title:temp_nftdata.video_title,
+                content_creator:temp_nftdata.content_creator,
+                video_url: temp_nftdata.video_url,
+                likes:temp_nftdata.likes+1,
+                views:temp_nftdata.views
+            };
+            // le
+            borrow_resource_manager!(self.video_nft).update_non_fungible_data(&NonFungibleId::from_u64(self.random_card_id_counter),updated_videonft);
+            info!("likes {:?}",temp_nftdata.likes);
             self.random_card_id_counter += 1;
+            
 
 
     }
+
+    //helper funciton
+    // pub fn get_NFT_from_vault_using_NFTID(&mut self,NFTVault : Vault,nftReference : ResourceAddress,NFTID:u64 ) -> (NonFungible<T>)
+    // {
+    //     let nonfungtok_id_BTreeSet =NFTVault.non_fungible_ids(); 
+    //     let temp_nft_id = nonfungtok_id_BTreeSet.get(&NonFungibleId::from_u64(NFTID)).unwrap();
+    //     let temp_nftdata= borrow_resource_manager!(nftReference).get_non_fungible_data(temp_nft_id);
+    //     return temp_nftdata;
+    // }
+
 
 //     pub fn update_likes(&mut self) -> ()
 //     {
