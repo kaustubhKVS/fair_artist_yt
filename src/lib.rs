@@ -375,12 +375,41 @@ blueprint!{
             let cc_ownership_vault: &mut Vault = self.cc_vaults_hashmap.get_mut(cc_nftID).unwrap();
 
             info!("VaultID of CC of the {:?}",&cc_ownership_vault);
-            info!("Sending {} XRD to Content Creator {} are available.", payment_bucket.amount(), cc_username);
+            info!("Sending {} XRD to Content Creator {}", payment_bucket.amount(), cc_username);
 
             // Sending the payment to the owner vault
             cc_ownership_vault.put(payment_bucket);
 
         }
+
+        // METHOD: send money from content creator vaults to content creators wallet
+        pub fn withdraw_from_cc_vault(&mut self , cc_name: String, withdraw_amount: Decimal ) -> Bucket
+        {
+            let cc_username: String = cc_name.clone();
+            
+            let cc_nftID = self.cc_username_cc_nftID_hashmap.get(&cc_username).unwrap();
+
+            info!("NFT ID of the {:?}",&cc_nftID);
+            info!("Name of CC of the {:?}",&cc_username);
+
+            // Getting the vault for the Content Creator
+            let cc_ownership_vault: &mut Vault = self.cc_vaults_hashmap.get_mut(cc_nftID).unwrap();
+
+            info!("VaultID of CC of the {:?}",&cc_ownership_vault);
+            info!("Previous Balance of Content Creator {} : {} XRD",cc_username, cc_ownership_vault.amount());
+            info!("Amount to be sent to Content Creator {} : {}  XRD",cc_username, withdraw_amount.clone());
+
+            // Sending the payment to the owner vault
+            let withdraw_bucket: Bucket = cc_ownership_vault.take(withdraw_amount);
+            info!("TRANSACTION SENT to Content Creator {}",cc_username);
+            info!("Avaliable Balance of Content Creator {} : {}  XRD",cc_username, cc_ownership_vault.amount());
+
+            return withdraw_bucket;
+
+        }
+        
+
+
        
         // pub fn fetch_video_details_and_update_view(&mut self,NFTID:u64) -> ()
         // {

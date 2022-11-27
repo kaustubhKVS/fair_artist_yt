@@ -4,15 +4,11 @@ resim call-method $component make_video_nft AndaRice KaustubhCooks https://www.y
 resim call-method $component make_video_nft MasaleBhaat KaustubhCooks https://www.youtube.com/watch?v=XqZsoesa55w
 resim call-method $component update_video_nft_views 0
 resim call-method $component update_video_nft_views 0
-resim call-method $component update_video_nft_views 0
-resim call-method $component update_video_nft_likes 0
 resim call-method $component update_video_nft_views 1
 resim call-method $component update_video_nft_likes 1
 resim call-method $component make_cc_nft_cc_vault ShivamCooks
 resim call-method $component make_video_nft BreadCrunch ShivamCooks https://www.youtube.com
 resim call-method $component make_video_nft Eggroll ShivamCooks https://www.youtube.com
-resim call-method $component update_video_nft_views 2
-resim call-method $component update_video_nft_views 2
 resim call-method $component update_video_nft_views 2
 resim call-method $component update_video_nft_likes 2
 resim call-method $component update_video_nft_views 3
@@ -21,6 +17,7 @@ resim call-method $component update_video_nft_views 1
 resim call-method $component update_video_nft_likes 1
 
 resim call-method $component deposit_cc_nft_cc_vault KaustubhCooks 100,resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag
+resim call-method $component withdraw_from_cc_vault KaustubhCooks 70
 
 
 Output:
@@ -469,3 +466,25 @@ Resources:
 └─ { amount: 2, resource address: resource_sim1qpnvx0kz0df6rnkwssmm44jml05672e52vss93y4qpcqx47yn8, name: "CC NFT" }
    ├─ NonFungible { id: NonFungibleId("0a0000000000000000"), immutable_data: Struct("KaustubhCooks", 0u64), mutable_data: Struct() }
    └─ NonFungible { id: NonFungibleId("0a0100000000000000"), immutable_data: Struct("ShivamCooks", 0u64), mutable_data: Struct() }
+
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim call-method $component withdraw_from_cc_vault KaustubhCooks 70                                                    Transaction Status: COMMITTED SUCCESS
+Transaction Fee: 0.3098256 XRD burned, 0.01549128 XRD tipped to validators
+Cost Units: 100000000 limit, 3098256 consumed, 0.0000001 XRD per cost unit
+Logs: 8
+├─ [INFO ] NFT ID of the 0a0000000000000000
+├─ [INFO ] Name of CC of the "KaustubhCooks"
+├─ [INFO ] VaultID of CC of the f83b829ce3ec35cd3663259d0bb4e3135828463b5bcc633cf44a74420584613c02040000
+├─ [INFO ] Previous Balance of Content Creator KaustubhCooks : 200 XRD
+├─ [INFO ] Amount to be sent to Content Creator KaustubhCooks : 70  XRD
+├─ [INFO ] Avaliable Balance of Content Creator KaustubhCooks : 200  XRD
+├─ [INFO ] TRANSACTION SENT to Content Creator KaustubhCooks
+└─ [INFO ] Avaliable Balance of Content Creator KaustubhCooks : 130  XRD
+Instructions:
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
+├─ CallMethod { component_address: component_sim1qgzdg24rh8wp9ur4tmzh8pd3mjsmv9r0cjk6m73ky47ssp95d9, method_name: "withdraw_from_cc_vault", args: Struct("KaustubhCooks", Decimal("70")) }
+└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+Instruction Outputs:
+├─ ()
+├─ Bucket(1025u32)
+└─ ()
+New Entities: 0
