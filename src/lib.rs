@@ -278,7 +278,7 @@ blueprint!{
         let nonfungtok_id_BTreeSet =self.video_vault.non_fungible_ids(); 
         let actual_nft_id = nonfungtok_id_BTreeSet.get(&NonFungibleId::from_u64(NFTID)).unwrap();
         
-        info!("NFT ID of the video to update {:?}",actual_nft_id);
+        info!("NFT ID of the video to Liked {:?}",actual_nft_id);
         let mut temp_nftdata:VideoNFT= borrow_resource_manager!(self.video_nft).get_non_fungible_data(actual_nft_id);
         let updated_videoNFT = VideoNFT {
             video_title:temp_nftdata.video_title,
@@ -298,7 +298,7 @@ blueprint!{
         let nonfungtok_id_BTreeSet =self.video_vault.non_fungible_ids(); 
         let actual_nft_id = nonfungtok_id_BTreeSet.get(&NonFungibleId::from_u64(NFTID)).unwrap();
         // let rand_varss = borrow_resource_manager!(temp_var);
-        info!("NFT ID of the video to update {:?}",actual_nft_id);
+        info!("NFT ID of the video to Viewed  {:?}",actual_nft_id);
         let mut temp_nftdata:VideoNFT= borrow_resource_manager!(self.video_nft).get_non_fungible_data(actual_nft_id);
         let updated_videoNFT = VideoNFT {
             video_title:temp_nftdata.video_title,

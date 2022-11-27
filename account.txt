@@ -1,17 +1,16 @@
 A new account has been created!
-Account component address: account_sim1qwgaghtzwyvsq0ueyt722nef4l4rxkthe3u2tfrmgl8sns0ppl
-Public key: 0389ae1432b1031f16ea51319a3e3055bc3d80d51f378f22a23a4273cf48ad556d
-Private key: 41aee9e4207cb7f9748aa8f91137f429c0d466729dfdd7554ca67b7eff5a3540
-No configuration found on system. will use the above account as default.
-
+Account component address: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl
+Public key: 0272347c506fd6a3c78e28c7850021b9178721a8b44110771586ffacd38f61d6bb
+Private key: 6ae8a9b34ab44d2679cd7e3b7039b1c8ffc36cd230eea0573819b605a4c22b06
+No configuration found on system. will use the above account as default
 ## resim set-default-account <ACCOUNT_COMPONENT_ADDRESS> <PRIVATE_KEY>
 
-## resim set-default-account account_sim1qwgaghtzwyvsq0ueyt722nef4l4rxkthe3u2tfrmgl8sns0ppl 41aee9e4207cb7f9748aa8f91137f429c0d466729dfdd7554ca67b7eff5a3540
+resim set-default-account account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl 6ae8a9b34ab44d2679cd7e3b7039b1c8ffc36cd230eea0573819b605a4c22b06
 
 
-$account="account_sim1qwgaghtzwyvsq0ueyt722nef4l4rxkthe3u2tfrmgl8sns0ppl"
-$privkey="41aee9e4207cb7f9748aa8f91137f429c0d466729dfdd7554ca67b7eff5a3540"
-$pubkey=" 0389ae1432b1031f16ea51319a3e3055bc3d80d51f378f22a23a4273cf48ad556d"
+$account="account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl"
+$privkey="6ae8a9b34ab44d2679cd7e3b7039b1c8ffc36cd230eea0573819b605a4c22b06"
+$pubkey=" 0272347c506fd6a3c78e28c7850021b9178721a8b44110771586ffacd38f61d6bb"
 
 >> resim show $account
 
@@ -326,7 +325,7 @@ Logs: 0
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallFunction { package_address: package_sim1q8qhc40zwlfqr86u9lqghm034udy0eakpd4ru6e66lsshgqv2h, blueprint_name: "YtFair", method_name: "instantiate_ytfair", args: Struct() }
-└─ CallMethod { component_address: account_sim1qwgaghtzwyvsq0ueyt722nef4l4rxkthe3u2tfrmgl8sns0ppl, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim call-method $component make_cc_nft_cc_vault RENURENU
 Transaction Status: COMMITTED SUCCESS
@@ -337,8 +336,341 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1qgdjsxukwdgqxkrs7a24793kxur690n4qhlj3htva4jsex0kzr, method_name: "make_cc_nft_cc_vault", args: Struct("RENURENU") }       
-└─ CallMethod { component_address: account_sim1qwgaghtzwyvsq0ueyt722nef4l4rxkthe3u2tfrmgl8sns0ppl, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }Instruction Outputs:├─ ()
+└─ CallMethod { component_address: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }Instruction Outputs:├─ ()
+├─ ()
+└─ ()
+
+New Entities: 0
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt>
+
+
+
+
+----------------------------------------------------v0.7 Add cc and video NFT minting with update likes and views-----------
+
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim new-account
+A new account has been created!
+Account component address: account_sim1qw0vkwtxqpcmuukp5rya043v2euc478w7z6jvwvhjqhsgajhq0
+Public key: 022b8f3bd4415c037b01dc09f6a9c025ec72b5ebda0c4f21eef623ebcb98ee3eb1
+Private key: 260cd9ef7f7f7d7677d9c3db397070ba5c346de6e90148e1aa3585a7d298a33d
+No configuration found on system. will use the above account as default.
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim reset
+Data directory cleared.
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim new-account
+A new account has been created!
+Account component address: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzklPublic key: 0272347c506fd6a3c78e28c7850021b9178721a8b44110771586ffacd38f61d6bb
+Private key: 6ae8a9b34ab44d2679cd7e3b7039b1c8ffc36cd230eea0573819b605a4c22b06
+No configuration found on system. will use the above account as default.
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim set-default-account account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl 6ae8a9b34ab44d2679cd7e3b7039b1c8ffc36cd230eea0573819b605a4c22b06Default account updated!PS C:\KAUSTUBH\DDS\project\fair_artist_yt> $account="account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl"       
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> $privkey="6ae8a9b34ab44d2679cd7e3b7039b1c8ffc36cd230eea0573819b605a4c22b06"     
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> $pubkey=" 0272347c506fd6a3c78e28c7850021b9178721a8b44110771586ffacd38f61d6bb"   PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim show $account
+Component: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl
+Blueprint: { package_address: package_sim1qyqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpsuluv44, blueprint_name: "Account" }
+Authorization
+├─ "deposit" => AllowAll
+├─ "balance" => AllowAll
+└─ "deposit_batch" => AllowAll
+State: Struct(KeyValueStore("773c9039b790149798a4623fe05305fd413c180c9b729c4d17e7fa1929488f4102040000"))
+Key Value Store: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl(773c9039b790149798a4623fe05305fd413c180c9b729c4d17e7fa1929488f41, 1026)
+└─ ResourceAddress("resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag") => Vault("773c9039b790149798a4623fe05305fd413c180c9b729c4d17e7fa1929488f4104040000")
+Resources:
+└─ { amount: 1000, resource address: resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag, name: "Radix", symbol: "XRD" }
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim publish .    
+   Compiling bankyt v0.1.0 (C:\KAUSTUBH\DDS\project\fair_artist_yt)
+warning: type `ccNFT` should have an upper camel case name
+  --> src\lib.rs:56:8
+   |
+56 | struct ccNFT {
+   |        ^^^^^ help: convert the identifier to upper camel case: `CcNft`
+   |
+   = note: `#[warn(non_camel_case_types)]` on by default
+
+warning: variable does not need to be mutable
+   --> src\lib.rs:208:13
+    |
+208 |         let mut payment_splitter: YtFairComponent = Self {
+    |             ----^^^^^^^^^^^^^^^^
+    |             |
+    |             help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` on by default
+
+warning: variable does not need to be mutable
+   --> src\lib.rs:240:35
+    |
+240 |         pub fn deposit(&mut self, mut payment: Bucket) -> () {
+    |                                   ----^^^^^^^
+    |                                   |
+    |                                   help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\lib.rs:282:13
+    |
+282 |         let mut temp_nftdata:VideoNFT= borrow_resource_manager!(self.video_nft).get_non_fungible_data(actual_nft_id);
+    |             ----^^^^^^^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\lib.rs:302:13
+    |
+302 |         let mut temp_nftdata:VideoNFT= borrow_resource_manager!(self.video_nft).get_non_fungible_data(actual_nft_id);
+    |             ----^^^^^^^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: `bankyt` (lib) generated 5 warnings
+    Finished release [optimized] target(s) in 1.76s
+   Compiling bankyt v0.1.0 (C:\KAUSTUBH\DDS\project\fair_artist_yt)
+warning: type `ccNFT` should have an upper camel case name
+  --> src\lib.rs:56:8
+   |
+56 | struct ccNFT {
+   |        ^^^^^ help: convert the identifier to upper camel case: `CcNft`
+   |
+   = note: `#[warn(non_camel_case_types)]` on by default
+
+warning: variable does not need to be mutable
+   --> src\lib.rs:208:13
+    |
+208 |         let mut payment_splitter: YtFairComponent = Self {
+    |             ----^^^^^^^^^^^^^^^^
+    |             |
+    |             help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` on by default
+
+warning: variable does not need to be mutable
+   --> src\lib.rs:240:35
+    |
+240 |         pub fn deposit(&mut self, mut payment: Bucket) -> () {
+    |                                   ----^^^^^^^
+    |                                   |
+    |                                   help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\lib.rs:282:13
+    |
+282 |         let mut temp_nftdata:VideoNFT= borrow_resource_manager!(self.video_nft).get_non_fungible_data(actual_nft_id);
+    |             ----^^^^^^^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src\lib.rs:302:13
+    |
+302 |         let mut temp_nftdata:VideoNFT= borrow_resource_manager!(self.video_nft).get_non_fungible_data(actual_nft_id);
+    |             ----^^^^^^^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: `bankyt` (lib) generated 5 warnings
+7vmz7q2nvnmpsklsr39
+├─ Resource: resource_sim1qp93c6u3lle4mlmzm8x8u5vrv4ad95pvk9q5adxk9g0smn00pv
+├─ Resource: resource_sim1qpusg0wh6ulzxc3fx4jyu5wgdx6ptzp2u4teffulcddqxa5zzw
+├─ Resource: resource_sim1qrrg0g0xmgyzmpz9t8fzgnht8uzvhupfrgwpx63rhkysygevtn
+└─ Resource: resource_sim1qpc3xnv8he352ll7g2p6hr0x8wqq87zjh4eakqz36tpscudml7PS C:\KAUSTUBH\DDS\project\fair_artist_yt> $component="component_sim1qgkc5q37c7gj40rqc4dqm6agxdc6wsknm8kc0h60clkqtn73vz"   
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim call-function $package YtFair instantiate_ytfair
+Transaction Status: COMMITTED SUCCESS
+Transaction Fee: 0.1289402 XRD burned, 0.00644701 XRD tipped to validators
+Cost Units: 100000000 limit, 1289402 consumed, 0.0000001 XRD per cost unit
+Logs: 0
+Instructions:
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
+├─ CallFunction { package_address: package_sim1q8kgtp4l8ku2q3ym0clt5x9a4h0wqgt3rwpf46r3w7wssmxr50, blueprint_name: "YtFair", method_name: "instantiate_ytfair", args: Struct() }
+└─ CallMethod { component_address: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+Instruction Outputs:
+├─ ()
+├─ Tuple(ComponentAddress("component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k"), Bucket(1026u32))
+└─ ()
+New Entities: 6
+└─ Component: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k
+├─ Resource: resource_sim1qpq90twylyscllcquappqknsywqervj2pjrfwegnvz5q4vucxu
+├─ Resource: resource_sim1qzw02s9j698mxayrxxg5swlf7uevqfr5ktdknvgh6e9skfm535
+├─ Resource: resource_sim1qp9jnl2qsv24wa6vzyas6yhzr429gcyyg9rm220y0hjqpnfph9
+├─ Resource: resource_sim1qpn42g7a07rejhhavc9wjtseef59cme3rqh5mxs5gjtqtrpv63
+└─ Resource: resource_sim1qqk50a474tr46s3hdvzaynwx5m02krd2jupzlhf0v80s047nvh
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> $component="component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k"
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim call-method $component make_cc_nft_cc_vault MEHERBABA                     Transaction Status: COMMITTED SUCCESS
+Transaction Fee: 0.0312147 XRD burned, 0.001560735 XRD tipped to validators
+Cost Units: 100000000 limit, 312147 consumed, 0.0000001 XRD per cost unit
+Logs: 1
+└─ [INFO ] Adding a new content creator with MEHERBABA name
+Instructions:
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
+├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "make_cc_nft_cc_vault", args: Struct("MEHERBABA") }
+└─ CallMethod { component_address: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+Instruction Outputs:
+├─ ()
 ├─ ()
 └─ ()
 New Entities: 0
-PS C:\KAUSTUBH\DDS\project\fair_artist_yt>
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim call-method $component make_video_nft DickSuckerDivyanshu VikramTheManus https://www.youtube.com/watch?v=XqZsoesa55w
+Transaction Status: COMMITTED SUCCESS
+Transaction Fee: 0.0312488 XRD burned, 0.00156244 XRD tipped to validators
+Cost Units: 100000000 limit, 312488 consumed, 0.0000001 XRD per cost unit
+Logs: 0
+Instructions:
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
+├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "make_video_nft", args: Struct("DickSuckerDivyanshu", "VikramTheManus", "https://www.youtube.com/watch?v=XqZsoesa55w") }
+└─ CallMethod { component_address: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
+Instruction Outputs:
+├─ ()
+├─ ()
+└─ ()
+New Entities: 0
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim call-method $component make_video_nft DickSuckerBej KanyeSouthAKADharan https://www.youtube.com/watch?v=LIIDh-qI9oI
+Transaction Status: COMMITTED SUCCESS
+Transaction Fee: 0.0312109 XRD burned, 0.001560545 XRD tipped to validators
+Cost Units: 100000000 limit, 312109 consumed, 0.0000001 XRD per cost unit
+Logs: 0
+Instructions:
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
+├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "make_video_nft", args: Struct("DickSuckerBej", "KanyeSouthAKADharan", "https://www.youtube.com/watch?v=LIIDh-qI9oI") }
+└─ CallMethod { component_address: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
+Instruction Outputs:
+├─ ()
+├─ ()
+└─ ()
+New Entities: 0                                                                         PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim call-method $component update_video_nft_likes 0                                                                    
+Transaction Status: COMMITTED SUCCESS
+Transaction Fee: 0.0336278 XRD burned, 0.00168139 XRD tipped to validators
+Cost Units: 100000000 limit, 336278 consumed, 0.0000001 XRD per cost unit
+Logs: 1
+└─ [INFO ] NFT ID of the video to update 0a0000000000000000
+Instructions:
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
+├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "update_video_nft_likes", args: Struct(0u64) }
+└─ CallMethod { component_address: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
+Instruction Outputs:
+├─ ()
+├─ ()
+└─ ()
+New Entities: 0
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim call-method $component update_video_nft_likes 1
+Transaction Status: COMMITTED SUCCESS
+Transaction Fee: 0.033631 XRD burned, 0.00168155 XRD tipped to validators
+Cost Units: 100000000 limit, 336310 consumed, 0.0000001 XRD per cost unit
+Logs: 1
+└─ [INFO ] NFT ID of the video to update 0a0100000000000000
+Instructions:
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
+├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "update_video_nft_likes", args: Struct(1u64) }
+└─ CallMethod { component_address: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
+Instruction Outputs:
+├─ ()
+├─ ()
+└─ ()
+New Entities: 0
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim call-method $component update_video_nft_likes 0
+Transaction Status: COMMITTED SUCCESS
+Transaction Fee: 0.0336278 XRD burned, 0.00168139 XRD tipped to validators
+Cost Units: 100000000 limit, 336278 consumed, 0.0000001 XRD per cost unit
+Logs: 1
+└─ [INFO ] NFT ID of the video to update 0a0000000000000000
+Instructions:
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
+├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "update_video_nft_likes", args: Struct(0u64) }
+└─ CallMethod { component_address: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
+Instruction Outputs:
+├─ ()
+├─ ()
+└─ ()
+New Entities: 0
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim call-method $component update_video_nft_likes 0
+Transaction Status: COMMITTED SUCCESS
+Transaction Fee: 0.0336278 XRD burned, 0.00168139 XRD tipped to validators
+Cost Units: 100000000 limit, 336278 consumed, 0.0000001 XRD per cost unit
+Logs: 1
+└─ [INFO ] NFT ID of the video to update 0a0000000000000000
+Instructions:
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
+├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "update_video_nft_likes", args: Struct(0u64) }
+└─ CallMethod { component_address: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
+Instruction Outputs:
+├─ ()
+├─ ()
+└─ ()
+New Entities: 0
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim call-method $component update_video_nft_likes 0
+Transaction Status: COMMITTED SUCCESS
+Transaction Fee: 0.0336278 XRD burned, 0.00168139 XRD tipped to validators
+Cost Units: 100000000 limit, 336278 consumed, 0.0000001 XRD per cost unit
+Logs: 1
+└─ [INFO ] NFT ID of the video to update 0a0000000000000000
+Instructions:
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
+├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "update_video_nft_likes", args: Struct(0u64) }
+└─ CallMethod { component_address: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
+Instruction Outputs:
+├─ ()
+├─ ()
+└─ ()
+New Entities: 0
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim call-method $component update_video_nft_views 0
+Transaction Fee: 0.0336278 XRD burned, 0.00168139 XRD tipped to validators
+Cost Units: 100000000 limit, 336278 consumed, 0.0000001 XRD per cost unit
+Logs: 1
+└─ [INFO ] NFT ID of the video to update 0a0000000000000000
+Instructions:
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "update_video_nft_views", args: Struct(0u64) }└─ CallMethod { component_address: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }Instruction Outputs:
+├─ ()
+├─ ()
+└─ ()
+New Entities: 0
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim call-method $component update_video_nft_views 1
+Transaction Status: COMMITTED SUCCESS
+Transaction Fee: 0.033631 XRD burned, 0.00168155 XRD tipped to validators
+Cost Units: 100000000 limit, 336310 consumed, 0.0000001 XRD per cost unit
+Logs: 1
+└─ [INFO ] NFT ID of the video to update 0a0100000000000000
+Instructions:
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "update_video_nft_views", args: Struct(1u64) }└─ CallMethod { component_address: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzkl, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }Instruction Outputs:
+├─ ()
+├─ ()
+└─ ()
+New Entities: 0
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim show $component
+Component: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k
+Blueprint: { package_address: package_sim1q8kgtp4l8ku2q3ym0clt5x9a4h0wqgt3rwpf46r3w7wssmxr50, blueprint_name: "YtFair" }   
+Authorization
+State: Struct(Vault("795405c5c0db5aaa005fe9c74903b955e8364de8b281553dce737d54f612706008040000"), Vault("795405c5c0db5aaa005fe9c74903b955e8364de8b281553dce737d54f61270600a040000"), Map<NonFungibleId, Vault>(NonFungibleId("0a0000000000000000"), Vault("dd2051b2d63281182bf45bbb50f2257130cbbbf85393e22b016017c2e2d26c8102040000")), Vault("795405c5c0db5aaa005fe9c74903b955e8364de8b281553dce737d54f61270600b040000"), Vec<Vault>(), Vault("795405c5c0db5aaa005fe9c74903b955e8364de8b281553dce737d54f612706009040000"), ResourceAddress("resource_sim1qp9jnl2qsv24wa6vzyas6yhzr429gcyyg9rm220y0hjqpnfph9"), ResourceAddress("resource_sim1qpn42g7a07rejhhavc9wjtseef59cme3rqh5mxs5gjtqtrpv63"), ResourceAddress("resource_sim1qqk50a474tr46s3hdvzaynwx5m02krd2jupzlhf0v80s047nvh"), false, 2u64, 1u64, Decimal("0"), Map<String, NonFungibleId>("MEHERBABA", NonFungibleId("0a0000000000000000")))
+Resources:
+├─ { amount: 1, resource address: resource_sim1qzw02s9j698mxayrxxg5swlf7uevqfr5ktdknvgh6e9skfm535, name: "Internal Admin Badge" }
+├─ { amount: 1, resource address: resource_sim1qqk50a474tr46s3hdvzaynwx5m02krd2jupzlhf0v80s047nvh, name: "CC NFT" }        
+│  └─ NonFungible { id: NonFungibleId("0a0000000000000000"), immutable_data: Struct("MEHERBABA", 0u64), mutable_data: Struct() }
+├─ { amount: 0, resource address: resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag, name: "Radix", symbol: "XRD" }
+├─ { amount: 2, resource address: resource_sim1qpn42g7a07rejhhavc9wjtseef59cme3rqh5mxs5gjtqtrpv63, name: "Video NFT" }     
+│  ├─ NonFungible { id: NonFungibleId("0a0000000000000000"), immutable_data: Struct("DickSuckerDivyanshu", "VikramTheManus", "https://www.youtube.com/watch?v=XqZsoesa55w"), mutable_data: Struct(4u64, 1u64) }
+│  └─ NonFungible { id: NonFungibleId("0a0100000000000000"), immutable_data: Struct("DickSuckerBej", "KanyeSouthAKADharan", "https://www.youtube.com/watch?v=LIIDh-qI9oI"), mutable_data: Struct(1u64, 1u64) }
+└─ { amount: 0, resource address: resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag, name: "Radix", symbol: "XRD" }
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt
