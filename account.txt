@@ -1,16 +1,16 @@
 A new account has been created!
-Account component address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5
-Public key: 03ebea9febd0a8ecc04bf1ea985a1a3daf22a45e2dbfafa1d4e11a1758cfbc57b2
-Private key: 31ab4b2245ca3e81f21b471422e2f49639a1c53ae2f940eee95fac1d522d98d8
-No configuration found on system. will use the above account as default
+Account component address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c
+Public key: 02edbb76c6ece7bfccf50c6c41e12c729174a01aeb1ad6753667eb153f0061c09d
+Private key: d5d81aad537c28a12956dd73d9964488f8e81d0ca72c2e3eccd909ff3ad9968e
+No configuration found on system. will use the above account as default.
 ## resim set-default-account <ACCOUNT_COMPONENT_ADDRESS> <PRIVATE_KEY>
 
-resim set-default-account account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5 31ab4b2245ca3e81f21b471422e2f49639a1c53ae2f940eee95fac1d522d98d8
+resim set-default-account account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c d5d81aad537c28a12956dd73d9964488f8e81d0ca72c2e3eccd909ff3ad9968e
 
 
-$account="account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5"
-$privkey="31ab4b2245ca3e81f21b471422e2f49639a1c53ae2f940eee95fac1d522d98d8"
-$pubkey="03ebea9febd0a8ecc04bf1ea985a1a3daf22a45e2dbfafa1d4e11a1758cfbc57b2"
+$account="account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c"
+$privkey="d5d81aad537c28a12956dd73d9964488f8e81d0ca72c2e3eccd909ff3ad9968e"
+$pubkey="02edbb76c6ece7bfccf50c6c41e12c729174a01aeb1ad6753667eb153f0061c09d"
 
 >> resim show $account
 
@@ -325,7 +325,7 @@ Logs: 0
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallFunction { package_address: package_sim1q8qhc40zwlfqr86u9lqghm034udy0eakpd4ru6e66lsshgqv2h, blueprint_name: "YtFair", method_name: "instantiate_ytfair", args: Struct() }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim call-method $component make_cc_nft_cc_vault RENURENU
 Transaction Status: COMMITTED SUCCESS
@@ -336,7 +336,7 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1qgdjsxukwdgqxkrs7a24793kxur690n4qhlj3htva4jsex0kzr, method_name: "make_cc_nft_cc_vault", args: Struct("RENURENU") }       
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }Instruction Outputs:├─ ()
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }Instruction Outputs:├─ ()
 ├─ ()
 └─ ()
 
@@ -359,19 +359,19 @@ Data directory cleared.
 PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim new-account
 A new account has been created!
 Account component address: account_sim1qw9rdc78kj824myg2n45dfgcgem74kwpqv5yzfc8u7qqvsmzklPublic key: 0272347c506fd6a3c78e28c7850021b9178721a8b44110771586ffacd38f61d6bb
-Private key: 31ab4b2245ca3e81f21b471422e2f49639a1c53ae2f940eee95fac1d522d98d8
+Private key: d5d81aad537c28a12956dd73d9964488f8e81d0ca72c2e3eccd909ff3ad9968e
 No configuration found on system. will use the above account as default.
-PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim set-default-account account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5 31ab4b2245ca3e81f21b471422e2f49639a1c53ae2f940eee95fac1d522d98d8Default account updated!PS C:\KAUSTUBH\DDS\project\fair_artist_yt> $account="account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5"       
-PS C:\KAUSTUBH\DDS\project\fair_artist_yt> $privkey="31ab4b2245ca3e81f21b471422e2f49639a1c53ae2f940eee95fac1d522d98d8"     
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim set-default-account account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c d5d81aad537c28a12956dd73d9964488f8e81d0ca72c2e3eccd909ff3ad9968eDefault account updated!PS C:\KAUSTUBH\DDS\project\fair_artist_yt> $account="account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c"       
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> $privkey="d5d81aad537c28a12956dd73d9964488f8e81d0ca72c2e3eccd909ff3ad9968e"     
 PS C:\KAUSTUBH\DDS\project\fair_artist_yt> $pubkey=" 0272347c506fd6a3c78e28c7850021b9178721a8b44110771586ffacd38f61d6bb"   PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim show $account
-Component: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5
+Component: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c
 Blueprint: { package_address: package_sim1qyqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpsuluv44, blueprint_name: "Account" }
 Authorization
 ├─ "deposit" => AllowAll
 ├─ "balance" => AllowAll
 └─ "deposit_batch" => AllowAll
 State: Struct(KeyValueStore("773c9039b790149798a4623fe05305fd413c180c9b729c4d17e7fa1929488f4102040000"))
-Key Value Store: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5(773c9039b790149798a4623fe05305fd413c180c9b729c4d17e7fa1929488f41, 1026)
+Key Value Store: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c(773c9039b790149798a4623fe05305fd413c180c9b729c4d17e7fa1929488f41, 1026)
 └─ ResourceAddress("resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag") => Vault("773c9039b790149798a4623fe05305fd413c180c9b729c4d17e7fa1929488f4104040000")
 Resources:
 └─ { amount: 1000, resource address: resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag, name: "Radix", symbol: "XRD" }
@@ -507,7 +507,7 @@ Logs: 0
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallFunction { package_address: package_sim1q8kgtp4l8ku2q3ym0clt5x9a4h0wqgt3rwpf46r3w7wssmxr50, blueprint_name: "YtFair", method_name: "instantiate_ytfair", args: Struct() }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ Tuple(ComponentAddress("component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k"), Bucket(1026u32))
@@ -528,7 +528,7 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "make_cc_nft_cc_vault", args: Struct("MEHERBABA") }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -542,7 +542,7 @@ Logs: 0
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "make_video_nft", args: Struct("DickSuckerDivyanshu", "VikramTheManus", "https://www.youtube.com/watch?v=XqZsoesa55w") }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -556,7 +556,7 @@ Logs: 0
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "make_video_nft", args: Struct("DickSuckerBej", "KanyeSouthAKADharan", "https://www.youtube.com/watch?v=LIIDh-qI9oI") }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -570,7 +570,7 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "update_video_nft_likes", args: Struct(0u64) }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -585,7 +585,7 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "update_video_nft_likes", args: Struct(1u64) }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -600,7 +600,7 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "update_video_nft_likes", args: Struct(0u64) }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -615,7 +615,7 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "update_video_nft_likes", args: Struct(0u64) }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -630,7 +630,7 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "update_video_nft_likes", args: Struct(0u64) }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }   
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -642,7 +642,7 @@ Cost Units: 100000000 limit, 336278 consumed, 0.0000001 XRD per cost unit
 Logs: 1
 └─ [INFO ] NFT ID of the video to update 0a0000000000000000
 Instructions:
-├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "update_video_nft_views", args: Struct(0u64) }└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }Instruction Outputs:
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "update_video_nft_views", args: Struct(0u64) }└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }Instruction Outputs:
 ├─ ()
 ├─ ()
 └─ ()
@@ -654,7 +654,7 @@ Cost Units: 100000000 limit, 336310 consumed, 0.0000001 XRD per cost unit
 Logs: 1
 └─ [INFO ] NFT ID of the video to update 0a0100000000000000
 Instructions:
-├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "update_video_nft_views", args: Struct(1u64) }└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }Instruction Outputs:
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }├─ CallMethod { component_address: component_sim1q2x7d3rxjzzpqckf38thkzretpj9vmylcqprzn6pw69q3r9n3k, method_name: "update_video_nft_views", args: Struct(1u64) }└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }Instruction Outputs:
 ├─ ()
 ├─ ()
 └─ ()
@@ -691,10 +691,10 @@ Logs: 4
 └─ [INFO ] Sending 100 XRD to Content Creator baba are available.
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
-├─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "withdraw_by_amount", args: Struct(Decimal("100"), ResourceAddress("resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag")) }
+├─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "withdraw_by_amount", args: Struct(Decimal("100"), ResourceAddress("resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag")) }
 ├─ TakeFromWorktopByAmount { amount: 100, resource_address: resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag }
 ├─ CallMethod { component_address: component_sim1qthj3fmh49cfkgwwjcn20jxm5lpq87p6rf0zrx0200tqxch2he, method_name: "deposit_cc_nft_cc_vault", args: Struct("baba", Bucket(512u32)) }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ Bucket(1025u32)
@@ -733,24 +733,24 @@ resim call-method $component deposit_cc_nft_cc_vault KaustubhCooks 100,resource_
 Output:
 PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim new-account
 A new account has been created!
-Account component address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5
+Account component address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c
 Public key: 03ebea9febd0a8ecc04bf1ea985a1a3daf22a45e2dbfafa1d4e11a1758cfbc57b2
-Private key: 31ab4b2245ca3e81f21b471422e2f49639a1c53ae2f940eee95fac1d522d98d8
+Private key: d5d81aad537c28a12956dd73d9964488f8e81d0ca72c2e3eccd909ff3ad9968e
 No configuration found on system. will use the above account as default.
-PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim set-default-account account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5 31ab4b2245ca3e81f21b471422e2f49639a1c53ae2f940eee95fac1d522d98d8
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim set-default-account account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c d5d81aad537c28a12956dd73d9964488f8e81d0ca72c2e3eccd909ff3ad9968e
 Default account updated!
-PS C:\KAUSTUBH\DDS\project\fair_artist_yt> $account="account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5"
-PS C:\KAUSTUBH\DDS\project\fair_artist_yt> $privkey="31ab4b2245ca3e81f21b471422e2f49639a1c53ae2f940eee95fac1d522d98d8"
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> $account="account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c"
+PS C:\KAUSTUBH\DDS\project\fair_artist_yt> $privkey="d5d81aad537c28a12956dd73d9964488f8e81d0ca72c2e3eccd909ff3ad9968e"
 PS C:\KAUSTUBH\DDS\project\fair_artist_yt> $pubkey="03ebea9febd0a8ecc04bf1ea985a1a3daf22a45e2dbfafa1d4e11a1758cfbc57b2"
 PS C:\KAUSTUBH\DDS\project\fair_artist_yt> resim show $account
-Component: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5
+Component: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c
 Blueprint: { package_address: package_sim1qyqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpsuluv44, blueprint_name: "Account" }
 Authorization
 ├─ "balance" => AllowAll
 ├─ "deposit" => AllowAll
 └─ "deposit_batch" => AllowAll
 State: Struct(KeyValueStore("6eafe8a043f432f99e9513495aa1f16b08178b70bb7e620b918c7f78c3ccf68502040000"))
-Key Value Store: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5(6eafe8a043f432f99e9513495aa1f16b08178b70bb7e620b918c7f78c3ccf685, 1026)
+Key Value Store: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c(6eafe8a043f432f99e9513495aa1f16b08178b70bb7e620b918c7f78c3ccf685, 1026)
 └─ ResourceAddress("resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag") => Vault("6eafe8a043f432f99e9513495aa1f16b08178b70bb7e620b918c7f78c3ccf68504040000")
 Resources:
 └─ { amount: 1000, resource address: resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag, name: "Radix", symbol: "XRD" }
@@ -871,7 +871,7 @@ Logs: 0
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallFunction { package_address: package_sim1q8d3rz2y72zd4rm6eremdxx4ns5cujlqsd5qpl3umk0s3ey68a, blueprint_name: "YtFair", method_name: "instantiate_ytfair", args: Struct() }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ Tuple(ComponentAddress("component_sim1qt0twrzd9cemld2ssd8lv2ryfx36y48cselu3j27njxqcgrdhd"), Bucket(1026u32))
@@ -903,7 +903,7 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1qt0twrzd9cemld2ssd8lv2ryfx36y48cselu3j27njxqcgrdhd, method_name: "make_cc_nft_cc_vault", args: Struct("KaustubhCooks") }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -917,7 +917,7 @@ Logs: 0
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1qt0twrzd9cemld2ssd8lv2ryfx36y48cselu3j27njxqcgrdhd, method_name: "make_video_nft", args: Struct("AndaRice", "KaustubhCooks", "https://www.youtube.com/watch?v=XqZsoesa55w") }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -931,7 +931,7 @@ Logs: 0
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1qt0twrzd9cemld2ssd8lv2ryfx36y48cselu3j27njxqcgrdhd, method_name: "make_video_nft", args: Struct("MasaleBhaat", "KaustubhCooks", "https://www.youtube.com/watch?v=XqZsoesa55w") }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -946,7 +946,7 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1qt0twrzd9cemld2ssd8lv2ryfx36y48cselu3j27njxqcgrdhd, method_name: "update_video_nft_views", args: Struct(0u64) }   
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -961,7 +961,7 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1qt0twrzd9cemld2ssd8lv2ryfx36y48cselu3j27njxqcgrdhd, method_name: "update_video_nft_views", args: Struct(0u64) }   
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -976,7 +976,7 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1qt0twrzd9cemld2ssd8lv2ryfx36y48cselu3j27njxqcgrdhd, method_name: "update_video_nft_views", args: Struct(0u64) }   
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -991,7 +991,7 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1qt0twrzd9cemld2ssd8lv2ryfx36y48cselu3j27njxqcgrdhd, method_name: "update_video_nft_views", args: Struct(0u64) }   
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -1006,7 +1006,7 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1qt0twrzd9cemld2ssd8lv2ryfx36y48cselu3j27njxqcgrdhd, method_name: "update_video_nft_views", args: Struct(1u64) }   
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -1021,7 +1021,7 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1qt0twrzd9cemld2ssd8lv2ryfx36y48cselu3j27njxqcgrdhd, method_name: "update_video_nft_likes", args: Struct(1u64) }   
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -1036,7 +1036,7 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1qt0twrzd9cemld2ssd8lv2ryfx36y48cselu3j27njxqcgrdhd, method_name: "make_cc_nft_cc_vault", args: Struct("ShivamCooks") }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -1051,7 +1051,7 @@ Logs: 0
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1qt0twrzd9cemld2ssd8lv2ryfx36y48cselu3j27njxqcgrdhd, method_name: "make_video_nft", args: Struct("BreadCrunch", "ShivamCooks", "https://www.youtube.com") }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -1065,7 +1065,7 @@ Logs: 0
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1qt0twrzd9cemld2ssd8lv2ryfx36y48cselu3j27njxqcgrdhd, method_name: "make_video_nft", args: Struct("Eggroll", "ShivamCooks", "https://www.youtube.com") }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -1080,7 +1080,7 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1qt0twrzd9cemld2ssd8lv2ryfx36y48cselu3j27njxqcgrdhd, method_name: "update_video_nft_views", args: Struct(2u64) }   
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -1095,7 +1095,7 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1qt0twrzd9cemld2ssd8lv2ryfx36y48cselu3j27njxqcgrdhd, method_name: "update_video_nft_views", args: Struct(2u64) }   
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -1110,7 +1110,7 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1qt0twrzd9cemld2ssd8lv2ryfx36y48cselu3j27njxqcgrdhd, method_name: "update_video_nft_views", args: Struct(2u64) }   
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -1125,12 +1125,12 @@ Logs: 1
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1qt0twrzd9cemld2ssd8lv2ryfx36y48cselu3j27njxqcgrdhd, method_name: "update_video_nft_views", args: Struct(3u64) }   
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
 ft_likes", args: Struct(3u64) }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
@@ -1147,10 +1147,10 @@ Logs: 4
 └─ [INFO ] Sending 100 XRD to Content Creator KaustubhCooks are available.
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
-├─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "withdraw_by_amount", args: Struct(Decimal("100"), ResourceAddress("resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag")) }
+├─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "withdraw_by_amount", args: Struct(Decimal("100"), ResourceAddress("resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag")) }
 ├─ TakeFromWorktopByAmount { amount: 100, resource_address: resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag }
 ├─ CallMethod { component_address: component_sim1qt0twrzd9cemld2ssd8lv2ryfx36y48cselu3j27njxqcgrdhd, method_name: "deposit_cc_nft_cc_vault", args: Struct("KaustubhCooks", Bucket(512u32)) }
-└─ CallMethod { component_address: account_sim1qwxqnet4ezpplf0npxa0mxpxsjz2dx0x73pxmmdzdaaq3dyrx5, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qd8r7ysx2yk8l95fr4dqs27a8m0fqkdm5ca3r04evvcsg3k60c, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ Bucket(1025u32)

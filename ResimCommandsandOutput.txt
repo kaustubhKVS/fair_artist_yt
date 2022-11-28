@@ -1,28 +1,31 @@
 DEBUG:
 resim call-function $package YtFair instantiate_ytfair
 resim call-method $component make_cc_nft_cc_vault KaustubhCooks
-resim call-method $component make_video_nft MasaleBhaat KaustubhCooks mp4
-resim call-method $component fetch_video_details_and_update_view mp4
+resim call-method $component make_video_nft MasaleBhaat KaustubhCooks mp4.com
+resim call-method $component fetch_video_details_and_update_view mp4.com
+resim call-method $component update_video_nft_views_byurl mp4.com
+resim call-method $component update_video_nft_likes_byurl mp4.com
+resim call-method $component playvideo_for_video_feed
 
 
 --------------------------------------------------------------v.0.9
 resim call-function $package YtFair instantiate_ytfair
 resim call-method $component make_cc_nft_cc_vault KaustubhCooks
 resim call-method $component make_video_nft AndaRice KaustubhCooks https://www.youtube.com/watch?v=XqZsoesa55w
-resim call-method $component make_video_nft MasaleBhaat KaustubhCooks mp4
-resim call-method $component update_video_nft_views 0
-resim call-method $component update_video_nft_views 0
-resim call-method $component update_video_nft_views 1
-resim call-method $component update_video_nft_likes 1
-resim call-method $component make_cc_nft_cc_vault ShivamCooks
-resim call-method $component make_video_nft BreadCrunch ShivamCooks https://www.youtube.com
-resim call-method $component make_video_nft Eggroll ShivamCooks https://www.youtube.com
-resim call-method $component update_video_nft_views 2
-resim call-method $component update_video_nft_likes 2
-resim call-method $component update_video_nft_views 3
-resim call-method $component update_video_nft_likes 3
-resim call-method $component update_video_nft_views 1
-resim call-method $component update_video_nft_likes 1
+resim call-method $component make_video_nft MasaleBhaat KaustubhCooks mp4.com
+resim call-method $component update_video_nft_views_byurl mp4.com
+resim call-method $component update_video_nft_likes_byurl mp4.com
+resim call-method $component update_video_nft_views_byurl https://www.youtube.com/watch?v=XqZsoesa55w
+resim call-method $component update_video_nft_likes_byurl https://www.youtube.com/watch?v=XqZsoesa55w
+
+resim call-method $component make_cc_nft_cc_vault ShivamDances
+resim call-method $component make_video_nft Skechers ShivamDances https://www.youtube.com/watch?v=feq6MOg3qpA
+resim call-method $component make_video_nft SheilaKiJawaani ShivamDances https://www.youtube.com/watch?v=ZTmF2v59CtI
+resim call-method $component update_video_nft_views_byurl https://www.youtube.com/watch?v=feq6MOg3qpA
+resim call-method $component update_video_nft_likes_byurl https://www.youtube.com/watch?v=feq6MOg3qpA
+resim call-method $component update_video_nft_views_byurl https://www.youtube.com/watch?v=ZTmF2v59CtI
+resim call-method $component update_video_nft_likes_byurl https://www.youtube.com/watch?v=ZTmF2v59CtI
+
 
 resim call-method $component deposit_cc_nft_cc_vault KaustubhCooks 100,resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag
 resim call-method $component withdraw_from_cc_vault KaustubhCooks 70
