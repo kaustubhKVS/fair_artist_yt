@@ -26,8 +26,18 @@ struct ShareHolder {
     amount_of_shares: Decimal,
 }
 
-// STRUCT FOR video_nft
+// STRUCT FOR cc_nft
 #[derive(NonFungibleData)]
+struct ccNFT {
+    content_creator:String,
+    subscribers: u64,
+    #[scrypto(mutable)]
+    videos_created:Vec<NonFungibleId>
+}
+
+// STRUCT FOR video_nft
+//figure out what traits like decode encode typeid describe mean
+#[derive(NonFungibleData,Decode,Encode,TypeId,Describe)]
 struct VideoNFT {
     video_title:String,
     content_creator:String,
@@ -36,16 +46,11 @@ struct VideoNFT {
     likes:u64,
     #[scrypto(mutable)]
     views:u64,
-
+    #[scrypto(mutable)]
+    comments:HashMap<NonFungibleId,Vec<String>>
 }
 
-// STRUCT FOR cc_nft
-#[derive(NonFungibleData)]
-struct ccNFT {
-    content_creator:String,
-    subscribers: u64,
 
-}
 
 blueprint!{
     struct YtFair {
@@ -156,6 +161,10 @@ blueprint!{
                     rule!(allow_all),
                     Mutability::LOCKED,
                 )
+                .updateable_non_fungible_data(
+                    rule!(allow_all),
+                    LOCKED,
+                )
                 .no_initial_supply();
         
 
@@ -219,7 +228,8 @@ blueprint!{
         {
             let cc_details = ccNFT {
                 content_creator: cc_name.clone(),
-                subscribers:0
+                subscribers:0,
+                videos_created:Vec::new()
             };
             
             let cc_nft_id: NonFungibleId = NonFungibleId::from_u64(self.cc_account_id_counter);
@@ -286,7 +296,8 @@ blueprint!{
                 content_creator:content_creator.clone(),
                 video_url: video_url.clone(),
                 likes:0,
-                views:0
+                views:0,
+                comments: HashMap::new()
             };
             
             // Minting the VideoNFT using the VideoNFT struct
@@ -296,7 +307,20 @@ blueprint!{
             let cc_username: String = content_creator.clone();
             
             // Using the Username in HashMap Fetching the ID of Content Creator NFT 
-            let cc_nftID = self.cc_username_cc_nftID_hashmap.get(&cc_username).unwrap().clone();
+            let cc_nftID:NonFungibleId = self.cc_username_cc_nftID_hashmap.get(&cc_username).unwrap().clone();
+
+            // let &mut temp_cc_nftdata:ccNFT = borrow_resource_manager!(self.cc_nft).get_non_fungible_data(&cc_nftID);
+
+            // temp_cc_nftdata.videos_created.push(NonFungibleId::from_u64(self.random_videonft_id_counter));
+            // let updated_cc_nftdata = ccNFT {
+            //     content_creator: temp_cc_nftdata.content_creator,
+            //     subscribers:temp_cc_nftdata.subscribers,
+            //     videos_created:temp_cc_nftdata.videos_created
+            // };
+
+            // borrow_resource_manager!(self.cc_nft).update_non_fungible_data(&cc_nftID.clone(),updated_cc_nftdata);
+
+
 
             // Adding entries IPFS URLS to list
             self.video_url_list.push(_clone_video_url.clone());
@@ -355,6 +379,20 @@ blueprint!{
             self.update_video_nft_views(query_vid_id);
         }
 
+        pub fn update_video_nft_comments_byurl(&mut self,vid_url:String,commenterUserName:String,comment:String) -> ()
+        {
+        
+            let query_url = vid_url.clone();
+            let temp_vid_id = self.video_url_videoNFTID_hashmap.get(&query_url).unwrap();
+            // info!("{}",query_vid_id);
+            let query_vid_id=temp_vid_id.clone();
+            let cc_username: String = commenterUserName.clone();
+            
+            // Using the Username in HashMap Fetching the ID of Content Creator NFT 
+            let commenterNFTID = self.cc_username_cc_nftID_hashmap.get(&cc_username).unwrap().clone();
+            self.update_video_nft_comments(query_vid_id,commenterNFTID,comment);
+        }
+
         pub fn update_video_nft_likes(&mut self,NFTID:NonFungibleId) -> ()
         {
         
@@ -368,7 +406,8 @@ blueprint!{
                 content_creator:temp_nftdata.content_creator,
                 video_url: temp_nftdata.video_url,
                 likes:temp_nftdata.likes+1,
-                views:temp_nftdata.views
+                views:temp_nftdata.views,
+                comments:temp_nftdata.comments
             };
 
             borrow_resource_manager!(self.video_nft).update_non_fungible_data(&actual_nft_id,updated_videoNFT);
@@ -388,12 +427,35 @@ blueprint!{
                 content_creator:temp_nftdata.content_creator,
                 video_url: temp_nftdata.video_url,
                 likes:temp_nftdata.likes,
-                views:temp_nftdata.views+1
+                views:temp_nftdata.views+1,
+                comments:temp_nftdata.comments
             };
             
             borrow_resource_manager!(self.video_nft).update_non_fungible_data(&actual_nft_id,updated_videoNFT);
         }
     
+        pub fn update_video_nft_comments(&mut self,vidNFTID:NonFungibleId,commenterNFTID:NonFungibleId,comment:String) -> ()
+        {
+        
+            // let nonfungtok_id_BTreeSet =self.video_vault.non_fungible_ids(); 
+            // let actual_nft_id = nonfungtok_id_BTreeSet.get(&NonFungibleId::from_u64(NFTID)).unwrap();
+            let actual_nft_id = vidNFTID;
+            info!("NFT ID of the video to Viewed  {:?}",actual_nft_id);
+            let mut temp_nftdata:VideoNFT= borrow_resource_manager!(self.video_nft).get_non_fungible_data(&actual_nft_id);
+            temp_nftdata.comments.entry(commenterNFTID).or_insert(Vec::new()).push(comment.clone());
+            // temp_nftdata.comments.insert(commenterNFTID,comment.clone());
+            let updated_videoNFT = VideoNFT {
+                video_title:temp_nftdata.video_title,
+                content_creator:temp_nftdata.content_creator,
+                video_url: temp_nftdata.video_url,
+                likes:temp_nftdata.likes,
+                views:temp_nftdata.views,
+                comments:temp_nftdata.comments
+            };
+            
+            borrow_resource_manager!(self.video_nft).update_non_fungible_data(&actual_nft_id,updated_videoNFT);
+            // return(temp_video_nftdata.video_url.to_string(), temp_video_nftdata.video_title.to_string(), temp_video_nftdata.likes, temp_video_nftdata.views, temp_cc_nftdata.content_creator.to_string(), temp_cc_nftdata.subscribers ) ;
+        }
 
         // METHOD: send money to content creator vaults
         pub fn deposit_cc_nft_cc_vault(&mut self , cc_name: String, payment_bucket: Bucket ) -> ()
@@ -465,6 +527,7 @@ blueprint!{
             info!("Current Playing Video VIEWS: {}  ", temp_video_nftdata.views);
             info!("Current ARTIST NAME: {}  ", temp_cc_nftdata.content_creator);
             info!("Current SUBSCRIBER COUNT: {}  ", temp_cc_nftdata.subscribers);
+            info!("NUMBER OF VIEWERS COMMENTING : {}",temp_video_nftdata.comments.len());
 
 
             // let updated_videoNFT = VideoNFT {
@@ -476,7 +539,7 @@ blueprint!{
             // };
             
             // borrow_resource_manager!(self.video_nft).update_non_fungible_data(&_video_nftID,updated_videoNFT);
-
+            //RETURN A LIST OF USERS WHO COMMENTED OR ALL THE COMMENTS YET
             return(temp_video_nftdata.video_url.to_string(), temp_video_nftdata.video_title.to_string(), temp_video_nftdata.likes, temp_video_nftdata.views, temp_cc_nftdata.content_creator.to_string(), temp_cc_nftdata.subscribers ) ;
 
         }   

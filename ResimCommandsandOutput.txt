@@ -25,7 +25,13 @@ resim call-method $component update_video_nft_views_byurl https://www.youtube.co
 resim call-method $component update_video_nft_likes_byurl https://www.youtube.com/watch?v=feq6MOg3qpA
 resim call-method $component update_video_nft_views_byurl https://www.youtube.com/watch?v=ZTmF2v59CtI
 resim call-method $component update_video_nft_likes_byurl https://www.youtube.com/watch?v=ZTmF2v59CtI
-
+--------------------------------------------------------------------------
+comments
+resim call-method $component make_cc_nft_cc_vault HarshaBackflips
+resim call-method $component update_video_nft_comments_byurl mp4.com ShivamDances "THIS IS SICK!!"
+resim call-method $component update_video_nft_comments_byurl mp4.com ShivamDances "Amaxin!"
+resim call-method $component update_video_nft_comments_byurl mp4.com HarshaBackflips "Tasty"
+resim show $component
 
 resim call-method $component deposit_cc_nft_cc_vault KaustubhCooks 100,resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag
 resim call-method $component withdraw_from_cc_vault KaustubhCooks 70
