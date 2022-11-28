@@ -62,6 +62,7 @@ function App() {
               <a href={"https://skywalker.infura-ipfs.io/ipfs/" + image.path}>
                 <h3>{"https://skywalker.infura-ipfs.io/ipfs/" + image.path}</h3>
               </a>
+              
               <h4>Video in IPFS:</h4>
               <iframe title="ipfsVideo" maxWidth="500" height="250" src={"https://skywalker.infura-ipfs.io/ipfs/" + image.path}>
               </iframe>
