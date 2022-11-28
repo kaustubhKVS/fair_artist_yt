@@ -58,17 +58,13 @@ function App() {
         <div className="data">
           {uploadedImages.map((image, index) => (
             <>
-              <img
-                className="image"
-                alt={`Uploaded #${index + 1}`}
-                src={"https://skywalker.infura-ipfs.io/ipfs/" + image.path}
-                style={{ maxWidth: "400px", margin: "15px" }}
-                key={image.cid.toString() + index}
-              />
               <h4>Link to IPFS:</h4>
               <a href={"https://skywalker.infura-ipfs.io/ipfs/" + image.path}>
                 <h3>{"https://skywalker.infura-ipfs.io/ipfs/" + image.path}</h3>
               </a>
+              <h4>Video in IPFS:</h4>
+              <iframe title="ipfsVideo" maxWidth="500" height="250" src={"https://skywalker.infura-ipfs.io/ipfs/" + image.path}>
+              </iframe>
             </>
           ))}
         </div>
