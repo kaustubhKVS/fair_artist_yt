@@ -74,7 +74,7 @@ blueprint!{
         video_url_videoNFTID_hashmap: HashMap<String, NonFungibleId>,
         videonftID_ccNFTID_hashmap: HashMap<NonFungibleId, NonFungibleId>,
         ccNFT_VideoNFT_hashmap: HashMap<NonFungibleId, NonFungibleId>,
-        
+        // bhI id ka naam change kar dena
         // ContentCreator Information array
         cc_username_list: Vec<String>,
         cc_nftID_list: Vec<NonFungibleId>,
@@ -409,42 +409,42 @@ blueprint!{
         }
         
 
-        // pub fn fetch_video_details_and_update_view(&mut self, video_link: String) -> (String, String, u64, u64, String, u64)
-        // {
-        //     let _video_link: String = video_link.clone();
+        pub fn fetch_video_details_and_update_view(&mut self, video_link: String) -> (String, String, u64, u64, String, u64)
+        {
+            let _video_link: String = video_link.clone();
             
-        //     let _video_nftID = self.video_url_videoNFTID_hashmap.get(&_video_link).unwrap();
+            let _video_nftID = self.video_url_videoNFTID_hashmap.get(&_video_link).unwrap();
                 // info daal check kar
-        //     let _cc_nftID = self.videonftID_ccNFTID_hashmap.get(&_video_nftID).unwrap();
+            let _cc_nftID = self.videonftID_ccNFTID_hashmap.get(&_video_nftID).unwrap();
                 // info daal check kar
 
 
                 // Shayad Yaha gadbad hori hai
-        //     let mut temp_video_nftdata:VideoNFT= borrow_resource_manager!(self.video_nft).get_non_fungible_data(&_video_nftID);
+            let mut temp_video_nftdata:VideoNFT= borrow_resource_manager!(self.video_nft).get_non_fungible_data(&_video_nftID);
             
-        //     let mut temp_cc_nftdata:ccNFT= borrow_resource_manager!(self.cc_nft).get_non_fungible_data(&_cc_nftID);
+            let mut temp_cc_nftdata:ccNFT= borrow_resource_manager!(self.cc_nft).get_non_fungible_data(&_cc_nftID);
 
-        //     info!("Current Playing Video IPFS URL: {}  ", temp_video_nftdata.video_url );
-        //     info!("Current Playing Video TITLE: {}  ", temp_video_nftdata.video_title);
-        //     info!("Current Playing Video LIKES: {}  ", temp_video_nftdata.likes);
-        //     info!("Current Playing Video VIEWS: {}  ", temp_video_nftdata.views);
-        //     info!("Current ARTIST NAME: {}  ", temp_cc_nftdata.content_creator);
-        //     info!("Current SUBSCRIBER COUNT: {}  ", temp_cc_nftdata.subscribers);
+            info!("Current Playing Video IPFS URL: {}  ", temp_video_nftdata.video_url );
+            info!("Current Playing Video TITLE: {}  ", temp_video_nftdata.video_title);
+            info!("Current Playing Video LIKES: {}  ", temp_video_nftdata.likes);
+            info!("Current Playing Video VIEWS: {}  ", temp_video_nftdata.views);
+            info!("Current ARTIST NAME: {}  ", temp_cc_nftdata.content_creator);
+            info!("Current SUBSCRIBER COUNT: {}  ", temp_cc_nftdata.subscribers);
 
 
-        //     // let updated_videoNFT = VideoNFT {
-        //     //     video_title:temp_video_nftdata.video_title.clone(),
-        //     //     content_creator:temp_video_nftdata.content_creator.clone(),
-        //     //     video_url: temp_video_nftdata.video_url.clone(),
-        //     //     likes:temp_video_nftdata.likes.clone(),
-        //     //     views:temp_video_nftdata.views.clone()+1
-        //     // };
+            // let updated_videoNFT = VideoNFT {
+            //     video_title:temp_video_nftdata.video_title.clone(),
+            //     content_creator:temp_video_nftdata.content_creator.clone(),
+            //     video_url: temp_video_nftdata.video_url.clone(),
+            //     likes:temp_video_nftdata.likes.clone(),
+            //     views:temp_video_nftdata.views.clone()+1
+            // };
             
-        //     // borrow_resource_manager!(self.video_nft).update_non_fungible_data(&_video_nftID,updated_videoNFT);
+            // borrow_resource_manager!(self.video_nft).update_non_fungible_data(&_video_nftID,updated_videoNFT);
 
-        //     return(temp_video_nftdata.video_url.to_string(), temp_video_nftdata.video_title.to_string(), temp_video_nftdata.likes, temp_video_nftdata.views, temp_cc_nftdata.content_creator.to_string(), temp_cc_nftdata.subscribers ) ;
+            return(temp_video_nftdata.video_url.to_string(), temp_video_nftdata.video_title.to_string(), temp_video_nftdata.likes, temp_video_nftdata.views, temp_cc_nftdata.content_creator.to_string(), temp_cc_nftdata.subscribers ) ;
 
-        // }   
+        }   
 
          
         
