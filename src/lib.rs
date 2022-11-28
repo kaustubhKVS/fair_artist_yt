@@ -430,13 +430,13 @@ blueprint!{
             let cc_ownership_vault: &mut Vault = self.cc_vaults_hashmap.get_mut(cc_nftID).unwrap();
 
             info!("VaultID of CC of the {:?}",&cc_ownership_vault);
-            info!("Previous Balance of Content Creator {} : {} XRD",cc_username, cc_ownership_vault.amount());
-            info!("Amount to be sent to Content Creator {} : {}  XRD",cc_username, withdraw_amount.clone());
+            info!("Previous Balance of Content Creator Vault {} : {} XRD",cc_username, cc_ownership_vault.amount());
+            info!("Amount to be sent to WALLET of Content Creator {} : {}  XRD",cc_username, withdraw_amount.clone());
 
             // Sending the payment to the owner vault
             let withdraw_bucket: Bucket = cc_ownership_vault.take(withdraw_amount);
-            info!("TRANSACTION SENT to Content Creator {}",cc_username);
-            info!("Avaliable Balance of Content Creator {} : {}  XRD",cc_username, cc_ownership_vault.amount());
+            info!("TRANSACTION SENT WALLET OF Content Creator {}",cc_username);
+            info!("Avaliable Balance of in Vault of Content Creator {} : {}  XRD",cc_username, cc_ownership_vault.amount());
 
             return withdraw_bucket;
 
