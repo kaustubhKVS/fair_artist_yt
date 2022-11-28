@@ -409,27 +409,46 @@ blueprint!{
         }
         
 
-
-       
-        // pub fn fetch_video_details_and_update_view(&mut self,NFTID:u64) -> ()
+        // pub fn fetch_video_details_and_update_view(&mut self, video_link: String) -> (String, String, u64, u64, String, u64)
         // {
-           
-        //     let nonfungtok_id_BTreeSet =self.video_vault.non_fungible_ids(); 
-        //     let actual_nft_id = nonfungtok_id_BTreeSet.get(&NonFungibleId::from_u64(NFTID)).unwrap();
-        //     // let rand_varss = borrow_resource_manager!(temp_var);
-        //     info!("NFT ID of the video to Viewed  {:?}",actual_nft_id);
-        //     let mut temp_nftdata:VideoNFT= borrow_resource_manager!(self.video_nft).get_non_fungible_data(actual_nft_id);
-        //     let updated_videoNFT = VideoNFT {
-        //         video_title:temp_nftdata.video_title,
-        //         content_creator:temp_nftdata.content_creator,
-        //         video_url: temp_nftdata.video_url,
-        //         likes:temp_nftdata.likes,
-        //         views:temp_nftdata.views+1
-        //     };
+        //     let _video_link: String = video_link.clone();
             
-        //     borrow_resource_manager!(self.video_nft).update_non_fungible_data(actual_nft_id,updated_videoNFT);
+        //     let _video_nftID = self.video_url_videoNFTID_hashmap.get(&_video_link).unwrap();
+                // info daal check kar
+        //     let _cc_nftID = self.videonftID_ccNFTID_hashmap.get(&_video_nftID).unwrap();
+                // info daal check kar
+
+
+                // Shayad Yaha gadbad hori hai
+        //     let mut temp_video_nftdata:VideoNFT= borrow_resource_manager!(self.video_nft).get_non_fungible_data(&_video_nftID);
+            
+        //     let mut temp_cc_nftdata:ccNFT= borrow_resource_manager!(self.cc_nft).get_non_fungible_data(&_cc_nftID);
+
+        //     info!("Current Playing Video IPFS URL: {}  ", temp_video_nftdata.video_url );
+        //     info!("Current Playing Video TITLE: {}  ", temp_video_nftdata.video_title);
+        //     info!("Current Playing Video LIKES: {}  ", temp_video_nftdata.likes);
+        //     info!("Current Playing Video VIEWS: {}  ", temp_video_nftdata.views);
+        //     info!("Current ARTIST NAME: {}  ", temp_cc_nftdata.content_creator);
+        //     info!("Current SUBSCRIBER COUNT: {}  ", temp_cc_nftdata.subscribers);
+
+
+        //     // let updated_videoNFT = VideoNFT {
+        //     //     video_title:temp_video_nftdata.video_title.clone(),
+        //     //     content_creator:temp_video_nftdata.content_creator.clone(),
+        //     //     video_url: temp_video_nftdata.video_url.clone(),
+        //     //     likes:temp_video_nftdata.likes.clone(),
+        //     //     views:temp_video_nftdata.views.clone()+1
+        //     // };
+            
+        //     // borrow_resource_manager!(self.video_nft).update_non_fungible_data(&_video_nftID,updated_videoNFT);
+
+        //     return(temp_video_nftdata.video_url.to_string(), temp_video_nftdata.video_title.to_string(), temp_video_nftdata.likes, temp_video_nftdata.views, temp_cc_nftdata.content_creator.to_string(), temp_cc_nftdata.subscribers ) ;
+
         // }   
 
+         
+        
+        
         // // METHOD: SHOWING INFORMATION IN THE TOKEN
         // pub fn show_token_info(address: ResourceAddress) {
         //     // We borrow the resource manager of the provided address
