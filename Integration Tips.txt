@@ -1,5 +1,6 @@
-Package Address Published: package_tdx_a_1qxys26nl6hnjz4xxtlrmyvpszadza0ckus76fv256k7q6anlx3
+Alphanet Package Deployer: https://alphanet-deployer.radixdlt.com/
 
+Package Address Published: package_tdx_a_1qxys26nl6hnjz4xxtlrmyvpszadza0ckus76fv256k7q6anlx3
 
 For running frontend in Fair Artist YT folder:
 >> npm install
