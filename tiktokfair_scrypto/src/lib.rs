@@ -36,7 +36,6 @@ struct VideoNFT {
     likes:u64,
     #[scrypto(mutable)]
     views:u64,
-
 }
 
 // STRUCT FOR cc_nft
