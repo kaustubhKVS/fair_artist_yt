@@ -157,7 +157,105 @@ console.log('instantiate manifest: ', manifest);
   document.getElementById('csc').innerText = receipt.committed.receipt.output[1].data_json.elements[5]['value']
   //document.getElementById('receipt').innerText = JSON.stringify(receipt.committed.receipt, null, 2);
 };
+document.getElementById('like').onclick = async function name() {
+  let video_url_2 = document.getElementById("video_url_2").value;
+  let manifest = new ManifestBuilder()
+  .callMethod(accountAddress, 'lock_fee', ['Decimal("100")'])
+  .callMethod(componentAddress,'update_video_nft_likes_byurl',[`"${video_url_2}"`])
+  .callMethod(accountAddress, "deposit_batch", ['Expression("ENTIRE_WORKTOP")'])
+  .build()
+  .toString();
 
+console.log('instantiate manifest: ', manifest);
+
+  // Send manifest to extension for signing
+  const hash = await sdk
+    .sendTransaction(manifest)
+    .map((response) => response.transactionHash)
+
+  if (hash.isErr()) throw hash.error
+
+  // Fetch the receipt from the Gateway SDK
+  const receipt = await transactionApi.transactionReceiptPost({
+    v0CommittedTransactionRequest: { intent_hash: hash.value },
+  })
+console.log(receipt)
+  
+};
+
+document.getElementById('subscribers').onclick = async function name() {
+  let video_url_3 = document.getElementById("video_url_3").value;
+  let manifest = new ManifestBuilder()
+  .callMethod(accountAddress, 'lock_fee', ['Decimal("100")'])
+  .callMethod(componentAddress,'update_cc_nft_subscribers_byurl',[`"${video_url_3}"`])
+  .callMethod(accountAddress, "deposit_batch", ['Expression("ENTIRE_WORKTOP")'])
+  .build()
+  .toString();
+
+console.log('instantiate manifest: ', manifest);
+
+  // Send manifest to extension for signing
+  const hash = await sdk
+    .sendTransaction(manifest)
+    .map((response) => response.transactionHash)
+
+  if (hash.isErr()) throw hash.error
+
+  // Fetch the receipt from the Gateway SDK
+  const receipt = await transactionApi.transactionReceiptPost({
+    v0CommittedTransactionRequest: { intent_hash: hash.value },
+  })
+console.log(receipt)
+  
+};
+document.getElementById('subscribers_cc').onclick = async function name() {
+  let cc_name = document.getElementById("cc_name").value;
+  let manifest = new ManifestBuilder()
+  .callMethod(accountAddress, 'lock_fee', ['Decimal("100")'])
+  .callMethod(componentAddress,'update_cc_nft_subscribers_byccusername',[`"${cc_name}"`])
+  .callMethod(accountAddress, "deposit_batch", ['Expression("ENTIRE_WORKTOP")'])
+  .build()
+  .toString();
+
+console.log('instantiate manifest: ', manifest);
+
+  // Send manifest to extension for signing
+  const hash = await sdk
+    .sendTransaction(manifest)
+    .map((response) => response.transactionHash)
+
+  if (hash.isErr()) throw hash.error
+
+  // Fetch the receipt from the Gateway SDK
+  const receipt = await transactionApi.transactionReceiptPost({
+    v0CommittedTransactionRequest: { intent_hash: hash.value },
+  })
+console.log(receipt)
+  
+};
+document.getElementById('details_random').onclick = async function () {
+  let manifest = new ManifestBuilder()
+  .callMethod(accountAddress, 'lock_fee', ['Decimal("100")'])
+  .callMethod(componentAddress,'playvideo_for_video_feed',[])
+  .callMethod(accountAddress, "deposit_batch", ['Expression("ENTIRE_WORKTOP")'])
+  .build()
+  .toString();
+
+console.log('instantiate manifest: ', manifest);
+
+  // Send manifest to extension for signing
+  const hash = await sdk
+    .sendTransaction(manifest)
+    .map((response) => response.transactionHash)
+
+  if (hash.isErr()) throw hash.error
+
+  // Fetch the receipt from the Gateway SDK
+  const receipt = await transactionApi.transactionReceiptPost({
+    v0CommittedTransactionRequest: { intent_hash: hash.value },
+  })
+console.log(receipt.committed.receipt.output[1].data_json.elements)
+};
 document.getElementById('deposit').onclick = async function () {
 
   let deposit_amount = document.getElementById("deposit_amt").value;
