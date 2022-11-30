@@ -1,5 +1,47 @@
 import Sdk, { ManifestBuilder } from '@radixdlt/alphanet-walletextension-sdk';
 import { StateApi, TransactionApi } from '@radixdlt/alphanet-gateway-api-v0-sdk'
+import { create as ipfsHttpClient } from "ipfs-http-client";
+
+//const ipfsClient = require('ipfs-http-client');
+const projectId = "2I6wMUz8Xea37n9OkU994aF8XYx";
+const projectSecretKey = "09848658b19c8f279f7c8b8d1b835cfa";
+const auth = "Basic " + btoa(projectId + ":" + projectSecretKey);
+/*
+const client = ipfsClient.create({
+  host : 'https://ipfs.infura.io',
+  port : 5001,
+  protocol : 'https',
+  headers: {
+    authorization : auth,
+  },
+});
+
+const client = ipfsHttpClient({
+   url: "https://ipfs.infura.io:5001/api/v0",
+   headers: {
+     auth,
+   },
+});
+*/
+
+//document.getElementById('addVideosBtn').onclick = async function () {
+  //var input = document.getElementById('addVideosInput');
+  //console.log('input,',input);
+//   const files = e.target.files[0];
+//   //const url = URL.createObjectURL(file);
+  
+//   if (!files || files.length === 0) {
+//     return alert("No files selected");
+//   }
+
+//   const file = files[0];
+//   // upload files
+//   const result = client.add(file);
+
+//};
+
+
+//console.log('client',client);
 
 // Initialize the SDK
 const sdk = Sdk()
@@ -240,3 +282,10 @@ document.getElementById('userBalance').onclick = async function () {
   // document.getElementById("userBalance").innerText = account_gum_vault.resource_amount.amount_attos / Math.pow(10,18)
   // document.getElementById("machineBalance").innerText = machine_gum_vault.resource_amount.amount_attos / Math.pow(10,18)
 };
+/*
+document.getElementById("videoUploadedDiv").style.display = "none";
+
+document.getElementById('uploadVideoButton').onclick = async function () {
+  document.getElementById("videoUploadedDiv").style.display = "block";
+};
+*/
