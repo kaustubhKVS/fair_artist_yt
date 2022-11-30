@@ -523,15 +523,15 @@ blueprint!{
             info!("Current SUBSCRIBER COUNT: {}  ", temp_cc_nftdata.subscribers);
 
 
-            // let updated_videoNFT = VideoNFT {
-            //     video_title:temp_video_nftdata.video_title.clone(),
-            //     content_creator:temp_video_nftdata.content_creator.clone(),
-            //     video_url: temp_video_nftdata.video_url.clone(),
-            //     likes:temp_video_nftdata.likes.clone(),
-            //     views:temp_video_nftdata.views.clone()+1
-            // };
+            let updated_videoNFT = VideoNFT {
+                video_title:temp_video_nftdata.video_title.clone(),
+                content_creator:temp_video_nftdata.content_creator.clone(),
+                video_url: temp_video_nftdata.video_url.clone(),
+                likes:temp_video_nftdata.likes.clone(),
+                views:temp_video_nftdata.views.clone()+1
+            };
             
-            // borrow_resource_manager!(self.video_nft).update_non_fungible_data(&_video_nftID,updated_videoNFT);
+            borrow_resource_manager!(self.video_nft).update_non_fungible_data(&_video_nftID,updated_videoNFT);
 
             return(temp_video_nftdata.video_url.to_string(), temp_video_nftdata.video_title.to_string(), temp_video_nftdata.likes, temp_video_nftdata.views, temp_cc_nftdata.content_creator.to_string(), temp_cc_nftdata.subscribers ) ;
 
