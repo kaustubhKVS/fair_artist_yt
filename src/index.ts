@@ -9,7 +9,7 @@ const stateApi = new StateApi()
 // Global states
 let accountAddress: string // User account address
 //let componentAddress: "component_tdx_a_1q2jtnal7czxx4v6tec5k2028nmwly7eccdcrv5vg5nhqta2tzc";  // GumballMachine component address
-let componentAddress:string = 'component_tdx_a_1qts2aspyp7lkpl085z6csn78ve6phu75mxsngnkl4f0ssfml87'//'component_tdx_a_1q2jtnal7czxx4v6tec5k2028nmwly7eccdcrv5vg5nhqta2tzc'; 
+let componentAddress:string = 'component_tdx_a_1qgczxg2uzlndqaclhyrfcynyhys6whsf9fsq3xlflmnqv3cqp9'//'component_tdx_a_1q2jtnal7czxx4v6tec5k2028nmwly7eccdcrv5vg5nhqta2tzc'; 
 let resourceAddress: string // GUM resource address
 let content_creator: string //content creator string
 
