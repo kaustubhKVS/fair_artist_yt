@@ -17,7 +17,7 @@ $pubkey="03bffb92e2f0084c63c94fa38c0c1ceb40af1a5b85ff1c9bb54638e61461d6b72d"
 $privkey="bbbde545975226f9229bf0c3b8f3008ad95f243d5ef36ecd00a1b0bc730ee068"
 
 ## check account Status
->> resim show-account
+>> resim show $account
 
 >> resim publish .
 
