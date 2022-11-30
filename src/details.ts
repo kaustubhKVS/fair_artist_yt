@@ -12,9 +12,9 @@ let componentAddress: string  // GumballMachine component address
 let resourceAddress: string // GUM resource address
 let content_creator: string //content creator string
 
-accountAddress = window.localStorage.getItem("aa");
-componentAddress = window.localStorage.getItem("ca");
-content_creator = window.localStorage.getItem("cc");
+accountAddress = window.localStorage.getItem("winAccountAddress");
+componentAddress = window.localStorage.getItem("winComponentAddress");
+content_creator = window.localStorage.getItem("winContentCreator");
 
 console.log("checking ", accountAddress, "and", componentAddress)
 

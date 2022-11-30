@@ -12,8 +12,8 @@ let componentAddress: string  // GumballMachine component address
 let resourceAddress: string // GUM resource address
 let content_creator: string //content creator string
 
-accountAddress = window.localStorage.getItem("aa");
-componentAddress = window.localStorage.getItem("ca");
+accountAddress = window.localStorage.getItem("winAccountAddress");
+componentAddress = window.localStorage.getItem("winComponentAddress");
 
 console.log("checking ", accountAddress, "and", componentAddress)
 
@@ -48,7 +48,7 @@ console.log(content_creator);
   //document.getElementById('componentAddress').innerText = componentAddress;
   console.log(receipt)
   
-  window.localStorage.setItem("cc", content_creator);
+  window.localStorage.setItem("winContentCreator", content_creator);
 
   // resourceAddress = receipt.committed.receipt.state_updates.new_global_entities[0].global_address
   // document.getElementById('gumAddress').innerText = resourceAddress;

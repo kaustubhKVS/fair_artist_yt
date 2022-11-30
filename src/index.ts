@@ -27,7 +27,7 @@ document.getElementById('fetchAccountAddress').onclick = async function () {
 
   document.getElementById('accountAddress').innerText = accountAddresses[0].address
   accountAddress = accountAddresses[0].address
-  window.localStorage.setItem("aa", accountAddress);
+  window.localStorage.setItem("winAccountAddress", accountAddress);
 
 }
 
@@ -36,7 +36,7 @@ document.getElementById('instantiateComponent').onclick = async function () {
   'package_tdx_a_1qxys26nl6hnjz4xxtlrmyvpszadza0ckus76fv256k7q6anlx3'
   //document.getElementById("packageAddress").value;
   
-  let manifest = new ManifestBuilder()
+  /*let manifest = new ManifestBuilder()
   .callMethod(accountAddress, 'lock_fee', ['Decimal("100")'])
   .callFunction(packageAddress, 'YtFair', 'instantiate_ytfair', [])
   .callMethod(accountAddress, "deposit_batch", ['Expression("ENTIRE_WORKTOP")'])
@@ -56,11 +56,15 @@ console.log('instantiate manifest: ', manifest);
   const receipt = await transactionApi.transactionReceiptPost({
     v0CommittedTransactionRequest: { intent_hash: hash.value },
   })
-
-  componentAddress = receipt.committed.receipt.state_updates.new_global_entities[5].global_address
+*/
+  componentAddress = "component_tdx_a_1q2jtnal7czxx4v6tec5k2028nmwly7eccdcrv5vg5nhqta2tzc"
+  // receipt.committed.receipt.state_updates.new_global_entities[5].global_address
   document.getElementById('componentAddress').innerText = componentAddress;
-  window.localStorage.setItem("ca", componentAddress);
-  console.log(receipt)
+  window.localStorage.setItem("winComponentAddress", componentAddress);
+
+  console.log("ca sending? : ",componentAddress);
+
+  // console.log(receipt)
   
   // resourceAddress = receipt.committed.receipt.state_updates.new_global_entities[0].global_address
   // document.getElementById('gumAddress').innerText = resourceAddress;
