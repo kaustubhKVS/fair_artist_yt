@@ -30,7 +30,9 @@ document.getElementById('fetchAccountAddress').onclick = async function () {
 }
 
 document.getElementById('instantiateComponent').onclick = async function () {
-  let packageAddress = document.getElementById("packageAddress").value;
+  let packageAddress = 
+  'package_tdx_a_1qxys26nl6hnjz4xxtlrmyvpszadza0ckus76fv256k7q6anlx3'
+  //document.getElementById("packageAddress").value;
   
   let manifest = new ManifestBuilder()
   .callMethod(accountAddress, 'lock_fee', ['Decimal("100")'])
@@ -219,24 +221,24 @@ console.log('instantiate manifest: ', manifest);
   console.log(receipt)
 };
 
-document.getElementById('userBalance').onclick = async function () {
-  // Fetch the state of the account component
-  const account_state = await stateApi.stateComponentPost({
-    v0StateComponentRequest: { component_address: accountAddress }
-  })
+// document.getElementById('userBalance').onclick = async function () {
+//   // Fetch the state of the account component
+//   const account_state = await stateApi.stateComponentPost({
+//     v0StateComponentRequest: { component_address: accountAddress }
+//   })
 
-  let account_gum_vault = account_state.owned_vaults.find(vault => vault.resource_amount.resource_address == "resource_tdx_a_1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqegh4k9")
-  console.log(accountAddress)
-  //document.getElementById('wallet').innerText = account_gum_vault.resource_amount.amount_attos / Math.pow(10,18);
+//   let account_gum_vault = account_state.owned_vaults.find(vault => vault.resource_amount.resource_address == "resource_tdx_a_1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqegh4k9")
+//   console.log(accountAddress)
+//   //document.getElementById('wallet').innerText = account_gum_vault.resource_amount.amount_attos / Math.pow(10,18);
 
-  // // Fetch the state of the machine component
-  // const machine_state = await stateApi.stateComponentPost({
-  //   v0StateComponentRequest: { component_address: componentAddress }
-  // })
+//   // // Fetch the state of the machine component
+//   // const machine_state = await stateApi.stateComponentPost({
+//   //   v0StateComponentRequest: { component_address: componentAddress }
+//   // })
 
-  // let machine_gum_vault = machine_state.owned_vaults.find(vault => vault.resource_amount.resource_address == `${resourceAddress}`)
+//   // let machine_gum_vault = machine_state.owned_vaults.find(vault => vault.resource_amount.resource_address == `${resourceAddress}`)
 
-  // // Update the DOM
-  // document.getElementById("userBalance").innerText = account_gum_vault.resource_amount.amount_attos / Math.pow(10,18)
-  // document.getElementById("machineBalance").innerText = machine_gum_vault.resource_amount.amount_attos / Math.pow(10,18)
-};
+//   // // Update the DOM
+//   // document.getElementById("userBalance").innerText = account_gum_vault.resource_amount.amount_attos / Math.pow(10,18)
+//   // document.getElementById("machineBalance").innerText = machine_gum_vault.resource_amount.amount_attos / Math.pow(10,18)
+// };

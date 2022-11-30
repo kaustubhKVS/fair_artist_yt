@@ -4,28 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Radix SDK Sandbox</title>
+    <link rel="stylesheet" href="index.css">
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <script type="module" src="/dist/index.js"></script>
-    
-    <h1>Gumball Machine</h1>
 
-    <h2>1. Fetch User Account Address</h2>
-    <p><button id="fetchAccountAddress">Get wallet account address</button></p>
-    <p>Account Address: <pre id="accountAddress"></pre></p>
-    
-    <h2>2. Instantiate  YtFair</h2>
-    <input type="text" placeholder="Package address" id="packageAddress" />
+    <div class="topnav">
+      <a class="active" href="#index">My Home</a>
+      <a href="#MyWallet">Make my Rad Account</a>
+      <a href="#TopPicks">Upload Videos</a>
+      <a href="#TopPicks">Watch Videos</a>
+    </div>
+    <h1 class="shine">Welcome to Rad Videos!</h1>
+    <br>
+    <!-- <h2>1. Fetch User Account Address</h2> -->
+    <p><button id="fetchAccountAddress">See my Account Address</button></p>
+    <p><pre id="accountAddress"></pre></p>
+    <br>
+    <!-- <h2>2. Instantiate  YtFair</h2> -->
+    <!-- <input type="text" placeholder="Package address" id="packageAddress" /> -->
     <p><button id="instantiateComponent">Instantiate component</button></p>
-    <p>Component Address: <span id="componentAddress"></span></p>
+    <p><span id="componentAddress"></span></p>
     <!--p>GUM token address: <span id="gumAddress"></span></p-->
-
-    <h2>3. Make Content_Creator NFT</h2>
+    <br>
+    <h2>Make Content Creator NFT</h2>
+    <h4>Choose a username</h4>
     <input type="text" placeholder="Content Creator Name" id="content_creator_name" />
     <p><button id="CC_NFT">Create</button></p>
     <!-- <p>Component Address: <span id="componentAddress"></span></p> -->
-
+    <br>
     <h2>4. Upload Video</h2>
     <input type="url" placeholder="Video Url" id="video_url" />
     <input type="text" placeholder="Title" id="video_title" />
@@ -35,7 +43,7 @@
     <input type="url" placeholder="Video Url" id="video_url_1" />
     <p><button id="receipt">Receipt</button></p>
     <p>Receipt:<br><pre id="receipt"></pre></p> -->
-
+    <br>
     <h2>5. Fetch Video Details</h2>
     <input type="url" placeholder="Video Url" id="video_url_1" />
     <p><button id="details">Fetch Video Details</button></p>
@@ -45,23 +53,23 @@
     <p>Current Playing Video Views:<br><pre id="cpvv"></pre></p>
     <p>Current Artist Name:<br><pre id="can"></pre></p>
     <p>Current Subscriber Count:<br><pre id="csc"></pre></p>
-
+    <br>
     <!-- <h2>7. Fetch Video Details</h2>
     <p>Component Address: <span id="componentAddress"></span></p> -->
     <h2>6. Deposit Money </h2>
     <input type="number" placeholder="RDX to be deposited" id="deposit_amt" />
     <p><button id="deposit">Deposit</button></p>
 
+    <br>
     <h2>7. Withdraw Amount from Vault</h2>
     <input type="number" placeholder="RDX to be withdrawn" id="withdraw_amt" />
     <p><button id="withdraw">Withdraw</button></p>
 
+    <!-- <br>
     <h2>8. Wallet</h2>
-    <p>Amount: <span id="wallet"></span></p>
     <p><button id="userBalance">Get Bal</button></p>
+    <p>Amount: <pre id="wallet"></pre></p>
+ -->
 
-    
-
-    
   </body>
 </html>
