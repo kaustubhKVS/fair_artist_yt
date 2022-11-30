@@ -351,13 +351,13 @@ blueprint!{
             (num % end as u128) as usize
         }
 
-        pub fn playvideo_for_video_feed(&mut self)->()
+        pub fn playvideo_for_video_feed(&mut self)->(String, String, u64, u64, String, u64)
         {
             let choice = self.get_random(self.video_url_list.len());
             // let temp_list = self.video_url_list.clone();
             let temp_url = &self.video_url_list[choice];
             let vid_url_selected = temp_url.clone();
-            self.fetch_video_details_and_update_view(vid_url_selected);
+            return self.fetch_video_details_and_update_view(vid_url_selected);
         }
 
         //THIS WILL BE THE TRIGGER FUNCTION FOR UPDATING LIKES TO THE FRONT END
