@@ -2,19 +2,19 @@ Setting Resim:
 
 >> resim reset
 >> resim new-account
+PS C:\KAUSTUBH\DDS\project\tmp\fair_artist_yt_dodo> resim new-account
 A new account has been created!
-Account component address: account_sim1q0k7wntsjm372zmr85hgjz42mgydv4x7f553jsc67t3sypxc6r
-Public key: 03bffb92e2f0084c63c94fa38c0c1ceb40af1a5b85ff1c9bb54638e61461d6b72d
-Private key: bbbde545975226f9229bf0c3b8f3008ad95f243d5ef36ecd00a1b0bc730ee068
-No configuration found on system. will use the above account as default.
+Account component address: account_sim1qvy3akc79s4vx0td0dz7m2hr2qqmfdp3fa99sr3p5tsqelv80p
+Public key: 032657a771b896d1e44dac169a5833181ea98b921741a330da7e12686b128b646c
+Private key: bd94c1d802bb282579767a6fda3fd8c321183a500a4966a91dd83d3e667151fc
 
 ### Setting the default account
-resim set-default-account account_sim1q0k7wntsjm372zmr85hgjz42mgydv4x7f553jsc67t3sypxc6r bbbde545975226f9229bf0c3b8f3008ad95f243d5ef36ecd00a1b0bc730ee068
+resim set-default-account account_sim1qvy3akc79s4vx0td0dz7m2hr2qqmfdp3fa99sr3p5tsqelv80p bd94c1d802bb282579767a6fda3fd8c321183a500a4966a91dd83d3e667151fc
 
 ## exporting environment variables for further use
-$account="account_sim1q0k7wntsjm372zmr85hgjz42mgydv4x7f553jsc67t3sypxc6r"
-$pubkey="03bffb92e2f0084c63c94fa38c0c1ceb40af1a5b85ff1c9bb54638e61461d6b72d"
-$privkey="bbbde545975226f9229bf0c3b8f3008ad95f243d5ef36ecd00a1b0bc730ee068"
+$account="account_sim1qvy3akc79s4vx0td0dz7m2hr2qqmfdp3fa99sr3p5tsqelv80p"
+$pubkey="032657a771b896d1e44dac169a5833181ea98b921741a330da7e12686b128b646c"
+$privkey="bd94c1d802bb282579767a6fda3fd8c321183a500a4966a91dd83d3e667151fc"
 
 ## check account Status
 >> resim show $account
@@ -38,26 +38,27 @@ resim call-method $component make_cc_nft_cc_vault KaustubhCooks
 
 ## creating a VideoNFT when video uploaded by the user.
 resim call-method $component make_video_nft <Video Title> <Name of Youtube Channel> <Video Link From IPFS> 
-resim call-method $component make_video_nft SchesuanSauce KaustubhCooks https://www.youtube.com/watch?v=XqZsoesa55w
+resim call-method $component make_video_nft SchesuanSauce KaustubhCooks "https://www.youtube.com/watch?v=XqZsoesa55w"
 
 ## Recording View on a Video
 resim call-method $component update_video_nft_views_byurl <Video Link From IPFS> 
-resim call-method $component update_video_nft_views_byurl https://www.youtube.com/watch?v=XqZsoesa55w
+resim call-method $component update_video_nft_views_byurl "https://www.youtube.com/watch?v=XqZsoesa55w"
 
 ## Recording Like on a Video
 resim call-method $component update_video_nft_likes_byurl <Video Link From IPFS> 
-resim call-method $component update_video_nft_likes_byurl https://www.youtube.com/watch?v=XqZsoesa55w
+resim call-method $component update_video_nft_likes_byurl "https://www.youtube.com/watch?v=XqZsoesa55w"
 
 ## Fetching INformation about a video
-resim call-method $component fetch_video_details_and_update_view https://www.youtube.com/watch?v=XqZsoesa55w
+resim call-method $component fetch_video_details_and_update_view "https://www.youtube.com/watch?v=XqZsoesa55w"
 
 ## Randomly selecting a Video and Playing it i.e. returning its parameters to front end
 resim call-method $component playvideo_for_video_feed
 
 ##Adding subscribers to the content creator
 resim call-method $component update_cc_nft_subscribers_byurl <video url>
-resim call-method $component update_cc_nft_subscribers_byurl "https://www.youtube.com/watch?v=XqZsoesa55w"
+resim call-method $component update_cc_nft_subscribers_byurl ""https://www.youtube.com/watch?v=XqZsoesa55w""
 
+###### Adding subscriber to cc BY URL
 resim call-method $component update_cc_nft_subscribers_byccusername <ccnftusername>
 resim call-method $component update_cc_nft_subscribers_byccusername KaustubhCooks
 
@@ -73,12 +74,12 @@ resim call-method $component withdraw_from_cc_vault KaustubhCooks 70
 --------------------------------------------------------------v.0.9
 resim call-function $package YtFair instantiate_ytfair
 resim call-method $component make_cc_nft_cc_vault KaustubhCooks
-resim call-method $component make_video_nft AndaRice KaustubhCooks https://www.youtube.com/watch?v=XqZsoesa55w
+resim call-method $component make_video_nft AndaRice KaustubhCooks "https://www.youtube.com/watch?v=XqZsoesa55w"
 resim call-method $component make_video_nft MasaleBhaat KaustubhCooks mp4.com
 resim call-method $component update_video_nft_views_byurl mp4.com
 resim call-method $component update_video_nft_likes_byurl mp4.com
-resim call-method $component update_video_nft_views_byurl https://www.youtube.com/watch?v=XqZsoesa55w
-resim call-method $component update_video_nft_likes_byurl https://www.youtube.com/watch?v=XqZsoesa55w
+resim call-method $component update_video_nft_views_byurl "https://www.youtube.com/watch?v=XqZsoesa55w"
+resim call-method $component update_video_nft_likes_byurl "https://www.youtube.com/watch?v=XqZsoesa55w"
 
 resim call-method $component make_cc_nft_cc_vault ShivamDances
 resim call-method $component make_video_nft Skechers ShivamDances https://www.youtube.com/watch?v=feq6MOg3qpA
@@ -103,15 +104,15 @@ PS C:\KAUSTUBH\DDS\project\test\YtFair> resim reset
 Data directory cleared.
 PS C:\KAUSTUBH\DDS\project\test\YtFair> resim new-account
 A new account has been created!
-Account component address: account_sim1q0k7wntsjm372zmr85hgjz42mgydv4x7f553jsc67t3sypxc6r
+Account component address: account_sim1qvy3akc79s4vx0td0dz7m2hr2qqmfdp3fa99sr3p5tsqelv80p
 Public key: 03bffb92e2f0084c63c94fa38c0c1ceb40af1a5b85ff1c9bb54638e61461d6b72d
-Private key: bbbde545975226f9229bf0c3b8f3008ad95f243d5ef36ecd00a1b0bc730ee068
+Private key: bd94c1d802bb282579767a6fda3fd8c321183a500a4966a91dd83d3e667151fc
 No configuration found on system. will use the above account as default.
-PS C:\KAUSTUBH\DDS\project\test\YtFair> resim set-default-account account_sim1q0k7wntsjm372zmr85hgjz42mgydv4x7f553jsc67t3sypxc6r bbbde545975226f9229bf0c3b8f3008ad95f243d5ef36ecd00a1b0bc730ee068
+PS C:\KAUSTUBH\DDS\project\test\YtFair> resim set-default-account account_sim1qvy3akc79s4vx0td0dz7m2hr2qqmfdp3fa99sr3p5tsqelv80p bd94c1d802bb282579767a6fda3fd8c321183a500a4966a91dd83d3e667151fc
 Default account updated!
-PS C:\KAUSTUBH\DDS\project\test\YtFair> $account="account_sim1q0k7wntsjm372zmr85hgjz42mgydv4x7f553jsc67t3sypxc6r"
+PS C:\KAUSTUBH\DDS\project\test\YtFair> $account="account_sim1qvy3akc79s4vx0td0dz7m2hr2qqmfdp3fa99sr3p5tsqelv80p"
 PS C:\KAUSTUBH\DDS\project\test\YtFair> $pubkey="03bffb92e2f0084c63c94fa38c0c1ceb40af1a5b85ff1c9bb54638e61461d6b72d"
-PS C:\KAUSTUBH\DDS\project\test\YtFair> $privkey="bbbde545975226f9229bf0c3b8f3008ad95f243d5ef36ecd00a1b0bc730ee068"
+PS C:\KAUSTUBH\DDS\project\test\YtFair> $privkey="bd94c1d802bb282579767a6fda3fd8c321183a500a4966a91dd83d3e667151fc"
 PS C:\KAUSTUBH\DDS\project\test\YtFair> resim publish .
    Compiling proc-macro2 v1.0.47
    Compiling unicode-ident v1.0.5
@@ -249,7 +250,7 @@ Logs: 0
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallFunction { package_address: package_sim1qxqtnunx8dx2squh40k3g64p5997v6lcn65jxnx8yj3sf9c80l, blueprint_name: "YtFair", method_name: "instantiate_ytfair", args: Struct() }
-└─ CallMethod { component_address: account_sim1q0k7wntsjm372zmr85hgjz42mgydv4x7f553jsc67t3sypxc6r, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qvy3akc79s4vx0td0dz7m2hr2qqmfdp3fa99sr3p5tsqelv80p, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ Tuple(ComponentAddress("component_sim1qf07j4c825ee5x639cem366n57kvrgw983kpzcpmxczsc3ykew"), Bucket(1026u32))
@@ -269,24 +270,24 @@ Cost Units: 100000000 limit, 339970 consumed, 0.0000001 XRD per cost unit
 Logs: 1
 └─ [INFO ] Adding a new content creator with KaustubhCooks name
 Instructions:
-├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100├─ CallMethod { component_address: component_sim1qf07j4c825ee5x639cem366n57kvrgw983kpzcpmxczsc3ykew, method_name: "make_cc_nft_cc_vault", args: Struct("KaustubhCooks") }                                              └─ CallMethod { component_address: account_sim1q0k7wntsjm5x639cem366n57kvrgw983kpzcpmxczsc3ykew, method_name: 5x639cem366n57kvrgw983kpzcpmxczsc3ykew, method_name: "make_cc_nft_cc_vault", args: Struct(└─ CallMethod { component_address: account_sim1q0k7wntsjm372zmr85hgjz42mgydv4x7f553jsc67t3sypxc6r, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100├─ CallMethod { component_address: component_sim1qf07j4c825ee5x639cem366n57kvrgw983kpzcpmxczsc3ykew, method_name: "make_cc_nft_cc_vault", args: Struct("KaustubhCooks") }                                              └─ CallMethod { component_address: account_sim1q0k7wntsjm5x639cem366n57kvrgw983kpzcpmxczsc3ykew, method_name: 5x639cem366n57kvrgw983kpzcpmxczsc3ykew, method_name: "make_cc_nft_cc_vault", args: Struct(└─ CallMethod { component_address: account_sim1qvy3akc79s4vx0td0dz7m2hr2qqmfdp3fa99sr3p5tsqelv80p, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
-└─ ()                                                    New Entities: 0                                          PS C:\KAUSTUBH\DDS\project\test\YtFair> resim call-method $component make_video_nft SchesuanSauce KaustubhCooks https://www.youtube.com/watch?v=XqZsoesa55w
+└─ ()                                                    New Entities: 0                                          PS C:\KAUSTUBH\DDS\project\test\YtFair> resim call-method $component make_video_nft SchesuanSauce KaustubhCooks "https://www.youtube.com/watch?v=XqZsoesa55w"
 Transaction Status: COMMITTED SUCCESS                    Transaction Fee: 0.0389918 XRD burned, 0.00194959 XRD tipped to validators
 Cost Units: 100000000 limit, 389918 consumed, 0.0000001 XRD per cost unit
 Logs: 0
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
-├─ CallMethod { component_address: component_sim1qf07j4c825ee5x639cem366n57kvrgw983kpzcpmxczsc3ykew, method_name: "make_video_nft", args: Struct("SchesuanSauce", "KaustubhCooks", "https://www.youtube.com/watch?v=XqZsoesa55w") } 
-└─ CallMethod { component_address: account_sim1q0k7wntsjm372zmr85hgjz42mgydv4x7f553jsc67t3sypxc6r, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+├─ CallMethod { component_address: component_sim1qf07j4c825ee5x639cem366n57kvrgw983kpzcpmxczsc3ykew, method_name: "make_video_nft", args: Struct("SchesuanSauce", "KaustubhCooks", ""https://www.youtube.com/watch?v=XqZsoesa55w"") } 
+└─ CallMethod { component_address: account_sim1qvy3akc79s4vx0td0dz7m2hr2qqmfdp3fa99sr3p5tsqelv80p, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
 └─ ()
 New Entities: 0
-PS C:\KAUSTUBH\DDS\project\test\YtFair> resim call-method $component update_video_nft_views_byurl https://www.youtube.com/watch?v=XqZsoesa55w
+PS C:\KAUSTUBH\DDS\project\test\YtFair> resim call-method $component update_video_nft_views_byurl "https://www.youtube.com/watch?v=XqZsoesa55w"
 Transaction Status: COMMITTED SUCCESS
 Transaction Fee: 0.0415867 XRD burned, 0.002079335 XRD tipped to validators
 Cost Units: 100000000 limit, 415867 consumed, 0.0000001 XRD per cost unit
@@ -294,14 +295,14 @@ Logs: 1
 └─ [INFO ] NFT ID of the video to Viewed  0a0000000000000000
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
-├─ CallMethod { component_address: component_sim1qf07j4c825ee5x639cem366n57kvrgw983kpzcpmxczsc3ykew, method_name: "update_video_nft_views_byurl", args: Struct("https://www.youtube.com/watch?v=XqZsoesa55w") }
-└─ CallMethod { component_address: account_sim1q0k7wntsjm372zmr85hgjz42mgydv4x7f553jsc67t3sypxc6r, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+├─ CallMethod { component_address: component_sim1qf07j4c825ee5x639cem366n57kvrgw983kpzcpmxczsc3ykew, method_name: "update_video_nft_views_byurl", args: Struct(""https://www.youtube.com/watch?v=XqZsoesa55w"") }
+└─ CallMethod { component_address: account_sim1qvy3akc79s4vx0td0dz7m2hr2qqmfdp3fa99sr3p5tsqelv80p, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
 └─ ()
 New Entities: 0
-PS C:\KAUSTUBH\DDS\project\test\YtFair> resim call-method $component update_video_nft_likes_byurl https://www.youtube.com/watch?v=XqZsoesa55w
+PS C:\KAUSTUBH\DDS\project\test\YtFair> resim call-method $component update_video_nft_likes_byurl "https://www.youtube.com/watch?v=XqZsoesa55w"
 Transaction Status: COMMITTED SUCCESS
 Transaction Fee: 0.0415795 XRD burned, 0.002078975 XRD tipped to validators
 Cost Units: 100000000 limit, 415795 consumed, 0.0000001 XRD per cost unit
@@ -309,14 +310,14 @@ Logs: 1
 └─ [INFO ] NFT ID of the video to Liked 0a0000000000000000
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
-├─ CallMethod { component_address: component_sim1qf07j4c825ee5x639cem366n57kvrgw983kpzcpmxczsc3ykew, method_name: "update_video_nft_likes_byurl", args: Struct("https://www.youtube.com/watch?v=XqZsoesa55w") }
-└─ CallMethod { component_address: account_sim1q0k7wntsjm372zmr85hgjz42mgydv4x7f553jsc67t3sypxc6r, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+├─ CallMethod { component_address: component_sim1qf07j4c825ee5x639cem366n57kvrgw983kpzcpmxczsc3ykew, method_name: "update_video_nft_likes_byurl", args: Struct(""https://www.youtube.com/watch?v=XqZsoesa55w"") }
+└─ CallMethod { component_address: account_sim1qvy3akc79s4vx0td0dz7m2hr2qqmfdp3fa99sr3p5tsqelv80p, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
 └─ ()
 New Entities: 0
-PS C:\KAUSTUBH\DDS\project\test\YtFair> resim call-method $component update_video_nft_likes_byurl https://www.youtube.com/watch?v=XqZsoesa55w
+PS C:\KAUSTUBH\DDS\project\test\YtFair> resim call-method $component update_video_nft_likes_byurl "https://www.youtube.com/watch?v=XqZsoesa55w"
 Transaction Status: COMMITTED SUCCESS
 Transaction Fee: 0.0415795 XRD burned, 0.002078975 XRD tipped to validators
 Cost Units: 100000000 limit, 415795 consumed, 0.0000001 XRD per cost unit
@@ -324,14 +325,14 @@ Logs: 1
 └─ [INFO ] NFT ID of the video to Liked 0a0000000000000000
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
-├─ CallMethod { component_address: component_sim1qf07j4c825ee5x639cem366n57kvrgw983kpzcpmxczsc3ykew, method_name: "update_video_nft_likes_byurl", args: Struct("https://www.youtube.com/watch?v=XqZsoesa55w") }
-└─ CallMethod { component_address: account_sim1q0k7wntsjm372zmr85hgjz42mgydv4x7f553jsc67t3sypxc6r, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+├─ CallMethod { component_address: component_sim1qf07j4c825ee5x639cem366n57kvrgw983kpzcpmxczsc3ykew, method_name: "update_video_nft_likes_byurl", args: Struct(""https://www.youtube.com/watch?v=XqZsoesa55w"") }
+└─ CallMethod { component_address: account_sim1qvy3akc79s4vx0td0dz7m2hr2qqmfdp3fa99sr3p5tsqelv80p, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
 └─ ()
 New Entities: 0
-PS C:\KAUSTUBH\DDS\project\test\YtFair> resim call-method $component update_video_nft_likes_byurl https://www.youtube.com/watch?v=XqZsoesa55w
+PS C:\KAUSTUBH\DDS\project\test\YtFair> resim call-method $component update_video_nft_likes_byurl "https://www.youtube.com/watch?v=XqZsoesa55w"
 Transaction Status: COMMITTED SUCCESS
 Transaction Fee: 0.0415795 XRD burned, 0.002078975 XRD tipped to validators
 Cost Units: 100000000 limit, 415795 consumed, 0.0000001 XRD per cost unit
@@ -339,19 +340,19 @@ Logs: 1
 └─ [INFO ] NFT ID of the video to Liked 0a0000000000000000
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
-├─ CallMethod { component_address: component_sim1qf07j4c825ee5x639cem366n57kvrgw983kpzcpmxczsc3ykew, method_name: "update_video_nft_likes_byurl", args: Struct("https://www.youtube.com/watch?v=XqZsoesa55w") }
-└─ CallMethod { component_address: account_sim1q0k7wntsjm372zmr85hgjz42mgydv4x7f553jsc67t3sypxc6r, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+├─ CallMethod { component_address: component_sim1qf07j4c825ee5x639cem366n57kvrgw983kpzcpmxczsc3ykew, method_name: "update_video_nft_likes_byurl", args: Struct(""https://www.youtube.com/watch?v=XqZsoesa55w"") }
+└─ CallMethod { component_address: account_sim1qvy3akc79s4vx0td0dz7m2hr2qqmfdp3fa99sr3p5tsqelv80p, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ ()
 └─ ()
 New Entities: 0
-PS C:\KAUSTUBH\DDS\project\test\YtFair> resim call-method $component fetch_video_details_and_update_view https://www.youtube.com/watch?v=XqZsoesa55w
+PS C:\KAUSTUBH\DDS\project\test\YtFair> resim call-method $component fetch_video_details_and_update_view "https://www.youtube.com/watch?v=XqZsoesa55w"
 Transaction Status: COMMITTED SUCCESS
 Transaction Fee: 0.0460629 XRD burned, 0.002303145 XRD tipped to validators
 Cost Units: 100000000 limit, 460629 consumed, 0.0000001 XRD per cost unit
 Logs: 6
-├─ [INFO ] Current Playing Video IPFS URL: https://www.youtube.com/watch?v=XqZsoesa55w
+├─ [INFO ] Current Playing Video IPFS URL: "https://www.youtube.com/watch?v=XqZsoesa55w"
 ├─ [INFO ] Current Playing Video TITLE: SchesuanSauce
 ├─ [INFO ] Current Playing Video LIKES: 3
 ├─ [INFO ] Current Playing Video VIEWS: 1
@@ -359,8 +360,8 @@ Logs: 6
 └─ [INFO ] Current SUBSCRIBER COUNT: 0
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
-├─ CallMethod { component_address: component_sim1qf07j4c825ee5x639cem366n57kvrgw983kpzcpmxczsc3ykew, method_name: "fetch_video_details_and_update_view", args: Struct("https://www.youtube.com/watch?v=XqZsoesa55w") }
-└─ CallMethod { component_address: account_sim1q0k7wntsjm372zmr85hgjz42mgydv4x7f553jsc67t3sypxc6r, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WNew Entities: 0
+├─ CallMethod { component_address: component_sim1qf07j4c825ee5x639cem366n57kvrgw983kpzcpmxczsc3ykew, method_name: "fetch_video_details_and_update_view", args: Struct(""https://www.youtube.com/watch?v=XqZsoesa55w"") }
+└─ CallMethod { component_address: account_sim1qvy3akc79s4vx0td0dz7m2hr2qqmfdp3fa99sr3p5tsqelv80p, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WNew Entities: 0
 PS C:\KAUSTUBH\DDS\project\test\YtFair> resim call-method $component withdraw_from_cc_vault KaustubhCooks 70
 Transaction Status: COMMITTED SUCCESS
 Transaction Fee: 0.2453335 XRD burned, 0.012266675 XRD tipped to validators
@@ -376,7 +377,7 @@ Logs: 7
 Instructions:
 ├─ CallMethod { component_address: system_sim1qsqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqs9fh54n, method_name: "lock_fee", args: Struct(Decimal("100")) }
 ├─ CallMethod { component_address: component_sim1qf07j4c825ee5x639cem366n57kvrgw983kpzcpmxczsc3ykew, method_name: "withdraw_from_cc_vault", args: Struct("KaustubhCooks", Decimal("70")) }
-└─ CallMethod { component_address: account_sim1q0k7wntsjm372zmr85hgjz42mgydv4x7f553jsc67t3sypxc6r, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
+└─ CallMethod { component_address: account_sim1qvy3akc79s4vx0td0dz7m2hr2qqmfdp3fa99sr3p5tsqelv80p, method_name: "deposit_batch", args: Struct(Expression("ENTIRE_WORKTOP")) }
 Instruction Outputs:
 ├─ ()
 ├─ Bucket(1025u32)

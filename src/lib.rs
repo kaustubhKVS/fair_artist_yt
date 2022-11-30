@@ -372,6 +372,7 @@ blueprint!{
             let query_vid_id=temp_vid_id.clone();
             self.update_video_nft_likes(query_vid_id);
         }
+        
         //THIS WILL BE THE TRIGGER FUNCTION FOR UPDATING VIEWS TO THE FRONT END
         pub fn update_video_nft_views_byurl(&mut self, vid_url:String)->()
         {
@@ -457,7 +458,7 @@ blueprint!{
         }
 
         // METHOD: send money to content creator vaults
-        pub fn deposit_cc_nft_cc_vault(&mut self , cc_name: String, payment_bucket: Bucket ) -> ()
+        pub fn deposit_cc_nft_cc_vault(&mut self , cc_name: String, payment_bucket: Bucket ) -> (Decimal,Decimal,Decimal)
         {
             let cc_username: String = cc_name.clone();
             
@@ -466,8 +467,12 @@ blueprint!{
             info!("NFT ID of the {:?}",&cc_nftID);
             info!("Name of CC of the {:?}",&cc_username);
 
+             
             // Getting the vault for the Content Creator
             let cc_ownership_vault: &mut Vault = self.cc_vaults_hashmap.get_mut(cc_nftID).unwrap();
+
+            let previous_balance: Decimal = cc_ownership_vault.amount();
+            let deposit_amount: Decimal = payment_bucket.amount();
 
             info!("VaultID of CC of the {:?}",&cc_ownership_vault);
             info!("Sending {} XRD to Content Creator {}", payment_bucket.amount(), cc_username);
@@ -475,10 +480,14 @@ blueprint!{
             // Sending the payment to the owner vault
             cc_ownership_vault.put(payment_bucket);
 
+            let updated_balance: Decimal = cc_ownership_vault.amount();
+
+            return(previous_balance,deposit_amount,updated_balance);
+
         }
 
         // METHOD: send money from content creator vaults to content creators wallet
-        pub fn withdraw_from_cc_vault(&mut self , cc_name: String, withdraw_amount: Decimal ) -> Bucket
+        pub fn withdraw_from_cc_vault(&mut self , cc_name: String, withdraw_amount: Decimal ) -> (Bucket,Decimal,Decimal,Decimal)
         {
             let cc_username: String = cc_name.clone();
             
@@ -490,16 +499,25 @@ blueprint!{
             // Getting the vault for the Content Creator
             let cc_ownership_vault: &mut Vault = self.cc_vaults_hashmap.get_mut(cc_nftID).unwrap();
 
+            let previous_balance: Decimal = cc_ownership_vault.amount();
+
             info!("VaultID of CC of the {:?}",&cc_ownership_vault);
             info!("Previous Balance of Content Creator Vault {} : {} XRD",cc_username, cc_ownership_vault.amount());
             info!("Amount to be sent to WALLET of Content Creator {} : {}  XRD",cc_username, withdraw_amount.clone());
 
             // Sending the payment to the owner vault
             let withdraw_bucket: Bucket = cc_ownership_vault.take(withdraw_amount);
+
+            let _withdraw_amount: Decimal = withdraw_bucket.amount();
+
             info!("TRANSACTION SENT WALLET OF Content Creator {}",cc_username);
             info!("Avaliable Balance of in Vault of Content Creator {} : {}  XRD",cc_username, cc_ownership_vault.amount());
+            info!("VaultID of CC of the {:?}",&cc_ownership_vault);
+            info!("Sending {} XRD to Content Creator {}", withdraw_bucket.amount(), cc_username);
 
-            return withdraw_bucket;
+            let updated_balance: Decimal = cc_ownership_vault.amount();
+
+            return(withdraw_bucket,previous_balance,_withdraw_amount,updated_balance);
 
         }
         pub fn fetch_video_details_and_update_view_byurl(&mut self, video_link: String) -> (String, String, u64, u64, String, u64)
@@ -535,15 +553,15 @@ blueprint!{
             info!("Current SUBSCRIBER COUNT: {}  ", temp_cc_nftdata.subscribers);
 
 
-            // let updated_videoNFT = VideoNFT {
-            //     video_title:temp_video_nftdata.video_title.clone(),
-            //     content_creator:temp_video_nftdata.content_creator.clone(),
-            //     video_url: temp_video_nftdata.video_url.clone(),
-            //     likes:temp_video_nftdata.likes.clone(),
-            //     views:temp_video_nftdata.views.clone()+1
-            // };
+            let updated_videoNFT = VideoNFT {
+                video_title:temp_video_nftdata.video_title.clone(),
+                content_creator:temp_video_nftdata.content_creator.clone(),
+                video_url: temp_video_nftdata.video_url.clone(),
+                likes:temp_video_nftdata.likes.clone(),
+                views:temp_video_nftdata.views.clone()+1
+            };
             
-            // borrow_resource_manager!(self.video_nft).update_non_fungible_data(&_video_nftID,updated_videoNFT);
+            borrow_resource_manager!(self.video_nft).update_non_fungible_data(&_video_nftID,updated_videoNFT);
 
             return(temp_video_nftdata.video_url.to_string(), temp_video_nftdata.video_title.to_string(), temp_video_nftdata.likes, temp_video_nftdata.views, temp_cc_nftdata.content_creator.to_string(), temp_cc_nftdata.subscribers ) ;
 
