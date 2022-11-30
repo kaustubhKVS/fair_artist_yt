@@ -14,6 +14,7 @@ let content_creator: string //content creator string
 
 accountAddress = window.localStorage.getItem("aa");
 componentAddress = window.localStorage.getItem("ca");
+content_creator = window.localStorage.getItem("cc");
 
 console.log("checking ", accountAddress, "and", componentAddress)
 

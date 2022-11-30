@@ -14,6 +14,7 @@ let content_creator: string //content creator string
 
 accountAddress = window.localStorage.getItem("aa");
 componentAddress = window.localStorage.getItem("ca");
+content_creator = window.localStorage.getItem("cc");
 
 console.log("checking ", accountAddress, "and", componentAddress)
 
@@ -41,7 +42,7 @@ document.getElementById('details').onclick = async function () {
     })
   
     // Show the receipt on the DOM
-    // console.log(receipt.committed.receipt.output[1].data_json.elements)
+    console.log(receipt.committed.receipt.output[1].data_json.elements)
     document.getElementById('cpviu').innerText = receipt.committed.receipt.output[1].data_json.elements[0]['value']
     document.getElementById('cpvt').innerText = receipt.committed.receipt.output[1].data_json.elements[1]['value']
     document.getElementById('cpvl').innerText = receipt.committed.receipt.output[1].data_json.elements[2]['value']
@@ -51,62 +52,62 @@ document.getElementById('details').onclick = async function () {
     //document.getElementById('receipt').innerText = JSON.stringify(receipt.committed.receipt, null, 2);
   };
   
-//   document.getElementById('deposit').onclick = async function () {
+  document.getElementById('deposit').onclick = async function () {
   
-//     let deposit_amount = document.getElementById("deposit_amt").value;
-//     let manifest = new ManifestBuilder()
-//       .callMethod(accountAddress, "lock_fee", ['Decimal("100")'])
-//       .withdrawFromAccountByAmount(accountAddress, deposit_amount, "resource_tdx_a_1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqegh4k9")
-//       .takeFromWorktopByAmount(deposit_amount, "resource_tdx_a_1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqegh4k9", "bucket1")
-//       .callMethod(componentAddress, "deposit_cc_nft_cc_vault", [`"${content_creator}"`,'Bucket("bucket1")'])
-//       .callMethod(accountAddress, "deposit_batch", ['Expression("ENTIRE_WORKTOP")'])
-//       .build()
-//       .toString();
+    let deposit_amount = document.getElementById("deposit_amt").value;
+    let manifest = new ManifestBuilder()
+      .callMethod(accountAddress, "lock_fee", ['Decimal("100")'])
+      .withdrawFromAccountByAmount(accountAddress, deposit_amount, "resource_tdx_a_1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqegh4k9")
+      .takeFromWorktopByAmount(deposit_amount, "resource_tdx_a_1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqegh4k9", "bucket1")
+      .callMethod(componentAddress, "deposit_cc_nft_cc_vault", [`"${content_creator}"`,'Bucket("bucket1")'])
+      .callMethod(accountAddress, "deposit_batch", ['Expression("ENTIRE_WORKTOP")'])
+      .build()
+      .toString();
   
-//   console.log('instantiate manifest: ', manifest);
+  console.log('instantiate manifest: ', manifest);
   
-//     // Send manifest to extension for signing
-//     const hash = await sdk
-//       .sendTransaction(manifest)
-//       .map((response) => response.transactionHash)
+    // Send manifest to extension for signing
+    const hash = await sdk
+      .sendTransaction(manifest)
+      .map((response) => response.transactionHash)
   
-//     if (hash.isErr()) throw hash.error
+    if (hash.isErr()) throw hash.error
   
-//     // Fetch the receipt from the Gateway SDK
-//     const receipt = await transactionApi.transactionReceiptPost({
-//       v0CommittedTransactionRequest: { intent_hash: hash.value },
-//     })
+    // Fetch the receipt from the Gateway SDK
+    const receipt = await transactionApi.transactionReceiptPost({
+      v0CommittedTransactionRequest: { intent_hash: hash.value },
+    })
   
-//     // Show the receipt on the DOM
-//     console.log(receipt)
-//     //document.getElementById('cpviu').innerText = JSON.stringify(receipt.committed.receipt, null, 2);
+    // Show the receipt on the DOM
+    console.log(receipt)
+    //document.getElementById('cpviu').innerText = JSON.stringify(receipt.committed.receipt, null, 2);
   
-//   //document.getElementById('componentAddress').innerText = componentAddress;
-//   };
+  //document.getElementById('componentAddress').innerText = componentAddress;
+  };
   
-//   document.getElementById('withdraw').onclick = async function () {
-//     let withdraw_amt = document.getElementById("withdraw_amt").value;
-//     let manifest = new ManifestBuilder()
-//       .callMethod(accountAddress, "lock_fee", ['Decimal("100")'])
-//       .callMethod(componentAddress, "withdraw_from_cc_vault", [`"${content_creator}"`,`Decimal("${withdraw_amt}")`])
-//       .callMethod(accountAddress, "deposit_batch", ['Expression("ENTIRE_WORKTOP")'])
-//       .build()
-//       .toString();
+  document.getElementById('withdraw').onclick = async function () {
+    let withdraw_amt = document.getElementById("withdraw_amt").value;
+    let manifest = new ManifestBuilder()
+      .callMethod(accountAddress, "lock_fee", ['Decimal("100")'])
+      .callMethod(componentAddress, "withdraw_from_cc_vault", [`"${content_creator}"`,`Decimal("${withdraw_amt}")`])
+      .callMethod(accountAddress, "deposit_batch", ['Expression("ENTIRE_WORKTOP")'])
+      .build()
+      .toString();
   
-//   console.log('instantiate manifest: ', manifest);
+  console.log('instantiate manifest: ', manifest);
   
-//     // Send manifest to extension for signing
-//     const hash = await sdk
-//       .sendTransaction(manifest)
-//       .map((response) => response.transactionHash)
+    // Send manifest to extension for signing
+    const hash = await sdk
+      .sendTransaction(manifest)
+      .map((response) => response.transactionHash)
   
-//     if (hash.isErr()) throw hash.error
+    if (hash.isErr()) throw hash.error
   
-//     // Fetch the receipt from the Gateway SDK
-//     const receipt = await transactionApi.transactionReceiptPost({
-//       v0CommittedTransactionRequest: { intent_hash: hash.value },
-//     })
+    // Fetch the receipt from the Gateway SDK
+    const receipt = await transactionApi.transactionReceiptPost({
+      v0CommittedTransactionRequest: { intent_hash: hash.value },
+    })
   
-//     // Show the receipt on the DOM
-//     console.log(receipt)
-//   };
+    // Show the receipt on the DOM
+    console.log(receipt)
+  };

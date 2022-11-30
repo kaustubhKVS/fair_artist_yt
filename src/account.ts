@@ -48,6 +48,8 @@ console.log(content_creator);
   //document.getElementById('componentAddress').innerText = componentAddress;
   console.log(receipt)
   
+  window.localStorage.setItem("cc", content_creator);
+
   // resourceAddress = receipt.committed.receipt.state_updates.new_global_entities[0].global_address
   // document.getElementById('gumAddress').innerText = resourceAddress;
 }
