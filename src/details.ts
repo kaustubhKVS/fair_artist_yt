@@ -18,6 +18,49 @@ content_creator = window.localStorage.getItem("winContentCreator");
 
 console.log("checking ", accountAddress, "and", componentAddress)
 
+document.getElementById('play_random').onclick = async function () {
+  
+  let manifest = new ManifestBuilder()
+  .callMethod(accountAddress, 'lock_fee', ['Decimal("100")'])
+  .callMethod(componentAddress,'playvideo_for_video_feed',[])
+  .callMethod(accountAddress, "deposit_batch", ['Expression("ENTIRE_WORKTOP")'])
+  .build()
+  .toString();
+
+console.log('instantiate manifest: ', manifest);
+
+  // Send manifest to extension for signing
+  const hash = await sdk
+    .sendTransaction(manifest)
+    .map((response) => response.transactionHash)
+
+  if (hash.isErr()) throw hash.error
+
+  // Fetch the receipt from the Gateway SDK
+  const receipt = await transactionApi.transactionReceiptPost({
+    v0CommittedTransactionRequest: { intent_hash: hash.value },
+  })
+  // var iframe = document.createElement('iframe');
+  // iframe.src = receipt.committed.receipt.output[1].data_json.elements[0].value;
+  // document.getElementById("play").appendChild(iframe);
+  console.log(receipt)
+  document.getElementById("showskill").src =receipt.committed.receipt.output[1].data_json.elements[0].value
+  
+  //document.getElementById('play_url').innerText = receipt.committed.receipt.output[1].data_json.elements[0].value
+  //document.getElementById('myIframe').src = receipt.committed.receipt.output[1].data_json.elements[0].value+"&output=embed";
+  //console.log(receipt.committed.receipt.output[1].data_json.elements[0].value+"&output=embed")
+  
+//   if (play_url===null) {
+//     document.write("<p>You need to add a ?v={filename} to the url")
+// } else {
+//     document.write("<p>video controls</p>")
+//     document.write("<source src="+play_url+" >")
+//     document.write("Sorry, your browser doesn't support embedded videos.")
+//     document.write("</video>")
+// }
+};
+
+
 document.getElementById('details').onclick = async function () {
     let video_url_1 = document.getElementById("video_url_1").value;
     let manifest = new ManifestBuilder()
@@ -53,7 +96,7 @@ document.getElementById('details').onclick = async function () {
   };
   
   document.getElementById('deposit').onclick = async function () {
-  
+
     let deposit_amount = document.getElementById("deposit_amt").value;
     let manifest = new ManifestBuilder()
       .callMethod(accountAddress, "lock_fee", ['Decimal("100")'])
@@ -83,6 +126,9 @@ document.getElementById('details').onclick = async function () {
     //document.getElementById('cpviu').innerText = JSON.stringify(receipt.committed.receipt, null, 2);
   
   //document.getElementById('componentAddress').innerText = componentAddress;
+   document.getElementById('prev_bal_d').innerText = receipt.committed.receipt.output[3].data_json.elements[0]['value'].replace(/\D/g, '');
+    document.getElementById('deposit_amt_d').innerText = receipt.committed.receipt.output[3].data_json.elements[1]['value'].replace(/\D/g, '');
+    document.getElementById('curr_bal_d').innerText = receipt.committed.receipt.output[3].data_json.elements[2]['value'].replace(/\D/g, '');
   };
   
   document.getElementById('withdraw').onclick = async function () {
@@ -110,4 +156,7 @@ document.getElementById('details').onclick = async function () {
   
     // Show the receipt on the DOM
     console.log(receipt)
+    document.getElementById('prev_bal').innerText = receipt.committed.receipt.output[1].data_json.elements[1]['value'].replace(/\D/g, '');
+    document.getElementById('withdrew_amt').innerText = receipt.committed.receipt.output[1].data_json.elements[2]['value'].replace(/\D/g, '');
+    document.getElementById('curr_bal').innerText = receipt.committed.receipt.output[1].data_json.elements[3]['value'].replace(/\D/g, '');
   };

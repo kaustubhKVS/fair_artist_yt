@@ -18,6 +18,16 @@
       <a class="active" href="./details.html">Watch Videos</a>
     </div>
 
+    <h2>Play Video</h2>
+    <p><button id="play_random">Play</button></p>
+    <p>IPFS URL: <span id="play_url"></span></p>
+    <iframe id="showskill" scrolling="yes" height="350" width ="350" src=""></iframe>
+    <!-- <iframe id="myIframe" src="" ></iframe>
+    <iframe width="420" height="315" >
+    </iframe> -->
+      <!-- <div id="play"> </div> -->
+  
+
     <h2 style="font-size: 2.2em;">Fetch Video Details</h2>
     <input style="font-size: 1.5em;" type="url" placeholder="Video Url" id="video_url_1" />
     <p><button id="details">Fetch Video Details</button></p>
@@ -32,12 +42,17 @@
     <p>Component Address: <span id="componentAddress"></span></p> -->
     <h2 style="font-size: 2.2em;">Deposit Money </h2>
     <input style="font-size: 1.5em;" type="number" placeholder="RDX to be deposited" id="deposit_amt" />
+    <p>Previous Balance: <span id="prev_bal_d"></span></p>
+    <p>Amount Deposited: <span id="deposit_amt_d"></span></p>
+    <p>Current Balance: <span id="curr_bal_d"></span></p>
     <p><button id="deposit">Deposit</button></p>
 
     <br>
     <h2 style="font-size: 2.2em;">Withdraw Amount from Vault</h2>
     <input style="font-size: 1.5em;" type="number" placeholder="RDX to be withdrawn" id="withdraw_amt" />
+    <p>Previous Balance: <span id="prev_bal"></span></p>
+    <p>Amount withdrawn: <span id="withdrew_amt"></span></p>
+    <p>Current Balance: <span id="curr_bal"></span></p>
     <p><button id="withdraw">Withdraw</button></p>
-
   </body>
 </html>
