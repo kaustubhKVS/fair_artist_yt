@@ -8,7 +8,7 @@ const stateApi = new StateApi()
 
 // Global states
 let accountAddress: string // User account address
-let componentAddress: string  // GumballMachine component address
+let componentAddress= "component_tdx_a_1q2jtnal7czxx4v6tec5k2028nmwly7eccdcrv5vg5nhqta2tzc"  // GumballMachine component address
 let resourceAddress: string // GUM resource address
 let content_creator: string //content creator string
 
@@ -29,37 +29,37 @@ document.getElementById('fetchAccountAddress').onclick = async function () {
   accountAddress = accountAddresses[0].address
 }
 
-document.getElementById('instantiateComponent').onclick = async function () {
-  let packageAddress = document.getElementById("packageAddress").value;
-  
-  let manifest = new ManifestBuilder()
-  .callMethod(accountAddress, 'lock_fee', ['Decimal("100")'])
-  .callFunction(packageAddress, 'YtFair', 'instantiate_ytfair', [])
-  .callMethod(accountAddress, "deposit_batch", ['Expression("ENTIRE_WORKTOP")'])
-  .build()
-  .toString();
+// document.getElementById('instantiateComponent').onclick = async function () {
+//   let packageAddress = "package_tdx_a_1qxj3q5gajfyt38puk6a6v6ftw7ngqqmvt04g27zdsszqv45lf8"
 
-console.log('instantiate manifest: ', manifest);
+//   let manifest = new ManifestBuilder()
+//   .callMethod(accountAddress, 'lock_fee', ['Decimal("100")'])
+//   .callFunction(packageAddress, 'YtFair', 'instantiate_ytfair', [])
+//   .callMethod(accountAddress, "deposit_batch", ['Expression("ENTIRE_WORKTOP")'])
+//   .build()
+//   .toString();
+
+// console.log('instantiate manifest: ', manifest);
 
   // Send manifest to extension for signing
-  const hash = await sdk
-    .sendTransaction(manifest)
-    .map((response) => response.transactionHash)
+  // const hash = await sdk
+  //   .sendTransaction(manifest)
+  //   .map((response) => response.transactionHash)
 
-  if (hash.isErr()) throw hash.error
+  // if (hash.isErr()) throw hash.error
 
-  // Fetch the receipt from the Gateway SDK
-  const receipt = await transactionApi.transactionReceiptPost({
-    v0CommittedTransactionRequest: { intent_hash: hash.value },
-  })
+  // // Fetch the receipt from the Gateway SDK
+  // const receipt = await transactionApi.transactionReceiptPost({
+  //   v0CommittedTransactionRequest: { intent_hash: hash.value },
+  // })
 
-  componentAddress = receipt.committed.receipt.state_updates.new_global_entities[5].global_address
-  document.getElementById('componentAddress').innerText = componentAddress;
-  console.log(receipt)
+  // componentAddress = receipt.committed.receipt.state_updates.new_global_entities[5].global_address
+  // document.getElementById('componentAddress').innerText = componentAddress;
+  // console.log(receipt)
   
   // resourceAddress = receipt.committed.receipt.state_updates.new_global_entities[0].global_address
   // document.getElementById('gumAddress').innerText = resourceAddress;
-}
+//}
 
 document.getElementById('CC_NFT').onclick = async function () {
   content_creator = document.getElementById("content_creator_name").value;
@@ -189,6 +189,9 @@ console.log('instantiate manifest: ', manifest);
   //document.getElementById('cpviu').innerText = JSON.stringify(receipt.committed.receipt, null, 2);
 
 //document.getElementById('componentAddress').innerText = componentAddress;
+ document.getElementById('prev_bal_d').innerText = receipt.committed.receipt.output[3].data_json.elements[0]['value'].replace(/\D/g, '');
+  document.getElementById('deposit_amt_d').innerText = receipt.committed.receipt.output[3].data_json.elements[1]['value'].replace(/\D/g, '');
+  document.getElementById('curr_bal_d').innerText = receipt.committed.receipt.output[3].data_json.elements[2]['value'].replace(/\D/g, '');
 };
 
 
@@ -217,16 +220,19 @@ console.log('instantiate manifest: ', manifest);
 
   // Show the receipt on the DOM
   console.log(receipt)
+  document.getElementById('prev_bal').innerText = receipt.committed.receipt.output[1].data_json.elements[1]['value'].replace(/\D/g, '');
+  document.getElementById('withdrew_amt').innerText = receipt.committed.receipt.output[1].data_json.elements[2]['value'].replace(/\D/g, '');
+  document.getElementById('curr_bal').innerText = receipt.committed.receipt.output[1].data_json.elements[3]['value'].replace(/\D/g, '');
 };
 
-document.getElementById('userBalance').onclick = async function () {
-  // Fetch the state of the account component
-  const account_state = await stateApi.stateComponentPost({
-    v0StateComponentRequest: { component_address: accountAddress }
-  })
+// document.getElementById('userBalance').onclick = async function () {
+//   // Fetch the state of the account component
+//   const account_state = await stateApi.stateComponentPost({
+//     v0StateComponentRequest: { component_address: accountAddress }
+//   })
 
-  let account_gum_vault = account_state.owned_vaults.find(vault => vault.resource_amount.resource_address == "resource_tdx_a_1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqegh4k9")
-  console.log(accountAddress)
+//   let account_gum_vault = account_state.owned_vaults.find(vault => vault.resource_amount.resource_address == "resource_tdx_a_1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqegh4k9")
+//   console.log(accountAddress)
   //document.getElementById('wallet').innerText = account_gum_vault.resource_amount.amount_attos / Math.pow(10,18);
 
   // // Fetch the state of the machine component
@@ -239,4 +245,4 @@ document.getElementById('userBalance').onclick = async function () {
   // // Update the DOM
   // document.getElementById("userBalance").innerText = account_gum_vault.resource_amount.amount_attos / Math.pow(10,18)
   // document.getElementById("machineBalance").innerText = machine_gum_vault.resource_amount.amount_attos / Math.pow(10,18)
-};
+//};
