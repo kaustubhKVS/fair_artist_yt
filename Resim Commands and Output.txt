@@ -54,6 +54,13 @@ resim call-method $component fetch_video_details_and_update_view https://www.you
 ## Randomly selecting a Video and Playing it i.e. returning its parameters to front end
 resim call-method $component playvideo_for_video_feed
 
+##Adding subscribers to the content creator
+resim call-method $component update_cc_nft_subscribers_byurl <video url>
+resim call-method $component update_cc_nft_subscribers_byurl "https://www.youtube.com/watch?v=XqZsoesa55w"
+
+resim call-method $component update_cc_nft_subscribers_byccusername <ccnftusername>
+resim call-method $component update_cc_nft_subscribers_byccusername KaustubhCooks
+
 ## Sending Money to a Content Creator's Vault
 resim call-method $component deposit_cc_nft_cc_vault <Name of Youtube Channel> <Amount to be sent>
 resim call-method $component deposit_cc_nft_cc_vault KaustubhCooks 150,resource_sim1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqzqu57yag

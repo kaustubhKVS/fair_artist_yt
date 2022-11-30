@@ -43,6 +43,7 @@ struct VideoNFT {
 #[derive(NonFungibleData)]
 struct ccNFT {
     content_creator:String,
+    #[scrypto(mutable)]
     subscribers: u64,
 
 }
@@ -155,6 +156,10 @@ blueprint!{
                 .burnable(
                     rule!(allow_all),
                     Mutability::LOCKED,
+                )
+                .updateable_non_fungible_data(
+                    rule!(allow_all),
+                    LOCKED,
                 )
                 .no_initial_supply();
         
@@ -394,6 +399,39 @@ blueprint!{
             borrow_resource_manager!(self.video_nft).update_non_fungible_data(&actual_nft_id,updated_videoNFT);
         }
     
+        //THIS WILL BE THE TRIGGER FUNCTION FOR UPDATING VIEWS TO THE FRONT END
+        pub fn update_cc_nft_subscribers_byurl(&mut self, vid_url:String)->()
+        {
+            let query_url = vid_url.clone();
+            let temp_vid_id = self.video_url_videoNFTID_hashmap.get(&query_url).unwrap();
+            // info!("{}",query_vid_id);
+            let _cc_nftID = self.videonftID_ccNFTID_hashmap.get(&temp_vid_id).unwrap();
+            let query_ccnft_id=_cc_nftID.clone();
+            self.update_cc_nft_subscribers(query_ccnft_id);
+        }
+        
+        pub fn update_cc_nft_subscribers_byccusername(&mut self, cc_username:String)->()
+        {
+            let _cc_nftID = self.cc_username_cc_nftID_hashmap.get(&cc_username).unwrap().clone();
+            self.update_cc_nft_subscribers(_cc_nftID);
+        }
+
+        pub fn update_cc_nft_subscribers(&mut self,NFTID:NonFungibleId) -> ()
+        {
+        
+            // let nonfungtok_id_BTreeSet =self.video_vault.non_fungible_ids(); 
+            // let actual_nft_id = nonfungtok_id_BTreeSet.get(&NonFungibleId::from_u64(NFTID)).unwrap();
+            let actual_nft_id = NFTID;
+            info!("NFT ID of the creator to be subscribed {:?}",actual_nft_id);
+            let mut temp_nftdata:ccNFT= borrow_resource_manager!(self.cc_nft).get_non_fungible_data(&actual_nft_id);
+            let updated_ccNFT = ccNFT {
+                content_creator:temp_nftdata.content_creator,
+                subscribers:temp_nftdata.subscribers+1                
+            };
+
+            borrow_resource_manager!(self.cc_nft).update_non_fungible_data(&actual_nft_id,updated_ccNFT);
+            // self.random_card_id_counter += 1;
+        }
 
         // METHOD: send money to content creator vaults
         pub fn deposit_cc_nft_cc_vault(&mut self , cc_name: String, payment_bucket: Bucket ) -> ()
