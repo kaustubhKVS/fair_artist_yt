@@ -1,0 +1,10 @@
+Alphanet Package Deployer: https://alphanet-deployer.radixdlt.com/
+
+Package Address Published: package_tdx_a_1qxys26nl6hnjz4xxtlrmyvpszadza0ckus76fv256k7q6anlx3
+
+For running frontend in Fair Artist YT folder:
+>> npm install
+>> npm start
+
+Scrypto Code is located in Folder tiktokfair_scrypto:
+Take the resim commands if needed from the Resim Commands and Output.txt
