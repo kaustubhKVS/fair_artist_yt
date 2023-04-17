@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radix SDK Sandbox</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script type="module" src="/dist/account.js"></script>
+
+    <div class="topnav">
+      <a href="./index.html">My Home</a>
+      <a class="active" href="./account.html">Create Rad Account</a>
+      <a href="./upload.html">Upload Videos</a>
+      <a href="./details.html">Watch Videos</a>
+    </div>
+
+    <br>
+    <h2 style="font-size: 2.2em;">Make Content Creator NFT</h2><br>
+    <h4 style="font-size: 1.5em;">Choose a username</h4>
+    <input style="font-size: 1.5em;" type="text" placeholder="Content Creator Name" id="content_creator_name" /><br>
+    <p><button id="CC_NFT" onclick="cc_nft(event)">Create</button></p>
+
+  </body>
+</html>

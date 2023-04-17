@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radix SDK Sandbox</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script type="module" src="/dist/details.js"></script>
+
+    <div class="topnav">
+      <a href="./index.html">My Home</a>
+      <a href="./account.html">Create Rad Account</a>
+      <a href="./upload.html">Upload Videos</a>
+      <a class="active" href="./details.html">Watch Videos</a>
+    </div>
+
+    <h2 style="font-size: 2.2em;">Play Video </h2>
+    <p><button id="play_random">Play</button></p>
+    <!-- <p>IPFS URL: <span id="play_url"></span></p> -->
+    <p align="center">
+    <iframe id="showskill" scrolling="yes" height="650" width ="950" src=""></iframe></p> 
+    <!-- <iframe id="myIframe" src="" ></iframe>
+    <iframe width="420" height="315" >
+    </iframe> -->
+      <div id="button"> 
+      <script src="https://use.fontawesome.com/fe459689b4.js"></script>
+      <button class="btn" id="green"><i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i></button>
+      <button class="btn" id="white"></i>Subscribe</button>
+    
+    <!-- <h2 style="font-size: 2.2em;">Fetch Video Details</h2>
+    <input style="font-size: 1.5em;" type="url" placeholder="Video Url" id="video_url_1" />
+    <p><button id="details">Fetch Video Details</button></p> -->
+    <p>Current Playing Video IPFS URL:<br><pre id="cpviu"></pre></p>
+    <p>Current Playing Video Title:<br><pre id="cpvt"></pre></p>
+    <p>Current Playing Video Likes:<br><pre id="cpvl"></pre></p>
+    <p>Current Playing Video Views:<br><pre id="cpvv"></pre></p>
+    <p>Current Artist Name:<br><pre id="can"></pre></p>
+    <p>Current Subscriber Count:<br><pre id="csc"></pre></p>
+    <br>
+  </div>
+    <!-- <h2>7. Fetch Video Details</h2>
+    <p>Component Address: <span id="componentAddress"></span></p> -->
+    <h2 style="font-size: 2.2em;">Deposit Money </h2>
+    <input style="font-size: 1.5em;" type="number" placeholder="RDX to be deposited" id="deposit_amt" />
+    <p>Previous Balance: <span id="prev_bal_d"></span></p>
+    <p>Amount Deposited: <span id="deposit_amt_d"></span></p>
+    <p>Current Balance: <span id="curr_bal_d"></span></p>
+    <p><button id="deposit">Deposit</button></p>
+
+    <br>
+    <h2 style="font-size: 2.2em;">Withdraw Amount from Vault</h2>
+    <input style="font-size: 1.5em;" type="number" placeholder="RDX to be withdrawn" id="withdraw_amt" />
+    <p>Previous Balance: <span id="prev_bal"></span></p>
+    <p>Amount withdrawn: <span id="withdrew_amt"></span></p>
+    <p>Current Balance: <span id="curr_bal"></span></p>
+    <p><button id="withdraw">Withdraw</button></p>
+  </body>
+</html>
